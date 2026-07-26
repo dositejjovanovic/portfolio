@@ -91,6 +91,13 @@ export default function Navbar() {
             Experience
             </a>
 
+            <a 
+             href="#achievements"
+             className="hover:text-white transition"
+            >
+              Achievements
+            </a>
+
           <a 
             href="#contact"
             className="hover:text-white transition"
