@@ -1,0 +1,9 @@
+export type InternationalExperience = { title: string; city: string; country: string; year: string; organization?: string; role?: string; description: string; contribution?: string[]; relatedPost?: string };
+
+export const internationalExperiences: InternationalExperience[] = [
+  { title: "Digital Challenge", city: "Timișoara", country: "Romania", year: "", description: "A study visit to Grigore Moisil school focused on digitalisation of teaching, modern educational organisation and the exchange of practice.", contribution: ["Organised a Digital Challenge workshop", "Educated young mentors", "Disseminated project results", "Supported long-term project impact"] },
+  { title: "2nd Balkan Student Summer School on Quantum Physics", city: "Thessaloniki", country: "Greece", year: "2025", organization: "Balkan Physical Union", description: "An academic and international learning experience centred on quantum physics." },
+  { title: "PACT for Mental Health", city: "Berlin", country: "Germany", year: "2026", organization: "OBESSU", description: "An international youth and educational experience connecting mental health, youth participation, education and cooperation.", relatedPost: "mental-health-and-meaningful-youth-participation" },
+  { title: "Unlockit Conference", city: "Belgrade", country: "Serbia", year: "2026", organization: "Digital Serbia Initiative", description: "A conference exploring technology, innovation and digital society." },
+  { title: "School partnership", city: "Malmö", country: "Sweden", year: "2025", description: "Contributed to hosting students from a partner school, supporting intercultural communication and institutional cooperation.", contribution: ["Represented the Mathematical Grammar School", "Represented Serbia in an international school environment"] },
+];

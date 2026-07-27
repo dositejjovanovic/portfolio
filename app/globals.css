@@ -1,58 +1,219 @@
 @import "tailwindcss";
 
 
-:root {
-  --background: #050505;
-  --foreground: #ffffff;
+@theme {
+
+  --color-background: var(--background);
+
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+
+  --color-border: var(--border);
+
+  --color-muted: var(--muted);
+
+  --color-glow: var(--glow);
+
 }
+
+
+
+:root {
+
+  --background: #f5f7ff;
+
+  --foreground: #271980;
+
+  --card: #ffffff;
+
+  --border: #dbe4ff;
+
+  --muted: #64748b;
+
+  --glow: #393bc5;
+
+  --glass: rgba(255, 255, 255, 0.68);
+  --glass-highlight: rgba(255, 255, 255, 0.74);
+  --shadow: rgba(39, 25, 128, 0.12);
+
+}
+
+
+
+.dark {
+
+  --background: #050505;
+
+  --foreground: #ffffff;
+
+  --card: #09090b;
+
+  --border: #27272a;
+
+  --muted: #a1a1aa;
+
+  --glow: #a5b4fc;
+
+  --glass: rgba(15, 16, 24, 0.68);
+  --glass-highlight: rgba(255, 255, 255, 0.10);
+  --shadow: rgba(0, 0, 0, 0.34);
+
+}
+
 
 
 * {
+
   box-sizing: border-box;
+
 }
+
 
 
 html {
+
   scroll-behavior: smooth;
+
 }
+
 
 
 body {
+
   background: var(--background);
+
   color: var(--foreground);
+
   font-family: var(--font-inter), sans-serif;
+
 }
+
+:focus-visible {
+  outline: 2px solid var(--glow);
+  outline-offset: 3px;
+}
+
+.glass-card {
+  border: 1px solid var(--border);
+  background: var(--glass);
+  box-shadow: 0 12px 40px var(--shadow);
+  backdrop-filter: blur(20px) saturate(145%);
+}
+
+.stat-orb {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--glow) 32%, var(--border));
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--card) 74%, transparent);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 0 30px color-mix(in srgb, var(--glow) 15%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.hero-stat-sphere {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--glow) 34%, var(--border));
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--card) 66%, transparent);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 12px 38px var(--shadow), 0 0 34px color-mix(in srgb, var(--glow) 15%, transparent);
+  backdrop-filter: blur(20px) saturate(150%);
+  transition: box-shadow .5s ease, border-color .5s ease, filter .5s ease;
+}
+
+.hero-stat-sphere:hover {
+  border-color: color-mix(in srgb, var(--glow) 58%, var(--border));
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 16px 45px var(--shadow), 0 0 50px color-mix(in srgb, var(--glow) 28%, transparent);
+}
+
+.hero-stat-reflection {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 16%, var(--glass-highlight), transparent 30%), linear-gradient(135deg, var(--glass-highlight), transparent 38%);
+  opacity: .65;
+  pointer-events: none;
+}
+
+.achievement-medal {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 9999px;
+  color: #fff;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.5), 0 8px 22px var(--shadow);
+}
+
+.medal-gold { background: linear-gradient(135deg, #f8d76a, #b77916); }
+.medal-silver { background: linear-gradient(135deg, #e9eef5, #8390a1); }
+.medal-bronze { background: linear-gradient(135deg, #dc9b6d, #8f4f2f); }
+
+
+
+/* Smooth theme transition */
+
+* {
+
+  transition:
+
+    background-color .4s ease,
+
+    border-color .4s ease,
+
+    color .4s ease;
+
+}
+
 
 
 /* Selection */
 
 ::selection {
-  background: white;
-  color: black;
+
+  background: var(--glow);
+
+  color: white;
+
 }
+
 
 
 /* Scrollbar */
 
 ::-webkit-scrollbar {
+
   width: 8px;
+
 }
+
 
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+
+  background: var(--background);
+
 }
+
 
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+
+  background: var(--border);
+
   border-radius: 20px;
+
 }
+
 
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+
+  background: var(--glow);
+
 }
+
 
 
 /* Typography */
@@ -60,14 +221,15 @@ body {
 h1,
 h2,
 h3 {
+
   font-family: var(--font-space), sans-serif;
+
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
 
-/* Smooth animations */
-
-* {
-  transition:
-    background-color .3s ease,
-    border-color .3s ease;
+@media (max-width: 639px) {
+  .hero-stat-sphere { backdrop-filter: blur(14px) saturate(130%); }
 }
