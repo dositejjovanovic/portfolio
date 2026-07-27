@@ -4,7 +4,7 @@ export const profile = {
   heroSupporting: "I turn ideas into projects, systems and stories that people can understand and use.",
   aboutStatement: "I connect ideas, people and institutions through leadership, design and communication.",
   introduction: [
-    "I’m a student at the Mathematical Grammar School in Belgrade, a Board Member of the Union of High School Students of Serbia and a designer working across education, student participation and visual communication.",
+    "I’m a student at the Mathematical Grammar School in Belgrade, Board Member & International Officer — Union of High School Students of Serbia, and a designer working across education, student participation and visual communication.",
     "I represent students at both school and national level, lead media and sustainability initiatives, contribute to international education projects and create visual campaigns for student and activist platforms.",
     "My work combines analytical thinking, creativity and responsibility. I enjoy understanding complex problems, organizing people around meaningful ideas and turning those ideas into projects, communication systems and results that last.",
   ],
@@ -17,7 +17,7 @@ export const profile = {
 } as const;
 
 export const rightNow = [
-  "Serving on the Board of the Union of High School Students of Serbia",
+  "Board Member & International Officer — Union of High School Students of Serbia",
   "Contributing to national and international student representation",
   "Coordinating school media and student initiatives",
   "Working on international cooperation and Erasmus+ activities",

@@ -1,7 +1,24 @@
 export type FormulaStatistic = { value: number; suffix: string; label: string };
+export type FormulaImage = { src: string; alt: string };
 export type FormulaGalleryGroup = { title: string; images: { src: string; alt: string }[] };
+type FormulaData = {
+  title: string;
+  subtitle: string;
+  serbianTitle: string;
+  date: string;
+  location: string;
+  organizers: string;
+  summary: string;
+  tags: string[];
+  cover?: FormulaImage;
+  statistics: FormulaStatistic[];
+  goals: string[];
+  format: { title: string; facts: string[] }[];
+  timeline: { title: string; text: string }[];
+  gallery: FormulaGalleryGroup[];
+};
 
-export const formula = {
+export const formula: FormulaData = {
   title: "Formula",
   subtitle: "Young Researchers Forum",
   serbianTitle: "Forum mladih istraživača „Formula“",

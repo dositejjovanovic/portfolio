@@ -42,7 +42,7 @@ export const mainProjects: Project[] = [
     description: "A youth media platform publishing texts, opinions and perspectives written by high school students. Selected articles are shared through @mg_blokada, helping student voices reach a wider audience.",
     tags: ["Youth Media", "Student Voices", "Journalism", "Activism"],
     coverTheme: "from-violet-600/70 via-fuchsia-500/50 to-rose-400/70",
-    externalUrl: "https://megafon.rs",
+    externalUrl: "https://megafon.org.rs",
   },
   {
     slug: "graphic-design",

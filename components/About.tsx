@@ -5,7 +5,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import Section from "@/components/ui/Section";
 
 const paragraphs = [
-  "I’m a student at the Mathematical Grammar School in Belgrade, a Board Member of the Union of High School Students of Serbia and a designer working across education, student participation and visual communication.",
+  "I’m a student at the Mathematical Grammar School in Belgrade, Board Member & International Officer — Union of High School Students of Serbia, and a designer working across education, student participation and visual communication.",
   "I combine analytical thinking, creativity and responsibility to turn complex ideas into clear communication, useful projects and work that lasts.",
 ];
 

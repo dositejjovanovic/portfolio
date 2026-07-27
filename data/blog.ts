@@ -185,7 +185,7 @@ export const blogPosts: BlogPost[] = [
     linkedInUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_yesterday-as-a-board-member-of-unija-srednjo%C5%A1kolaca-activity-7461319331528855552-tdNo",
     relatedExperiences: ["Union of High School Students of Serbia"],
     content: [
-      { heading: "Introduction", paragraphs: ["As a board member of the Union of High School Students of Serbia, I see every activity as part of a larger responsibility: helping ensure that students can participate meaningfully in the issues that shape their lives."] },
+      { heading: "Introduction", paragraphs: ["As Board Member & International Officer — Union of High School Students of Serbia, I see every activity as part of a larger responsibility: helping ensure that students can participate meaningfully in the issues that shape their lives."] },
       { heading: "Context", paragraphs: ["UNSS brings together high school students around advocacy, participation and the improvement of student life. Its work depends on young people who are willing to organise, listen and act collectively."] },
       { heading: "My role", paragraphs: ["My role on the board involves contributing to the organisation’s direction while staying connected to the experiences and needs of students. It combines practical responsibility with the privilege of representing a wider community."] },
       { heading: "Experience", paragraphs: ["Board work has taught me the importance of consistency: preparing carefully, communicating clearly and supporting a team through both visible activities and the planning that happens behind them."] },
