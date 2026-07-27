@@ -1,7 +1,7 @@
 import type { BlogPost } from "@/data/blog";
 
 type BlogCoverProps = {
-  post: Pick<BlogPost, "title" | "category" | "coverImage" | "coverTheme">;
+  post: Pick<BlogPost, "title" | "coverImage" | "coverTheme"> & { category: string };
   priority?: boolean;
   className?: string;
 };

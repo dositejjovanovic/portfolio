@@ -1,9 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Locale } from "@/data/locale";
+import Link from "next/link";
+import { adminConfig } from "@/lib/admin/config";
 
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: Locale }) {
+  void locale;
 
 
   return (
@@ -105,6 +109,8 @@ export default function Footer() {
             Next.js
 
           </span>
+
+          {adminConfig.footerEntryVisible && <Link href="/admin/login" className="ml-2 text-xs text-muted transition-colors hover:text-foreground">Admin</Link>}
 
 
         </p>

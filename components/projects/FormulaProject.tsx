@@ -58,7 +58,7 @@ export default function FormulaProject() {
   const gallery = formula.gallery.filter((group) => group.images.length > 0);
 
   return (
-    <main className="min-h-screen bg-background px-5 pb-14 pt-8 text-foreground sm:px-8">
+    <main className="min-h-screen bg-background px-5 pb-14 pt-28 text-foreground sm:px-8 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <Link href="/#work" className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground">
           <ArrowLeft size={16} />

@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import type { Locale } from "@/data/locale";
 
 
-export default function Contact() {
+export default function Contact({ locale }: { locale: Locale }) {
+  void locale;
 
   return (
 

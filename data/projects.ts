@@ -4,8 +4,10 @@ export type Project = {
   description: string;
   tags: string[];
   coverTheme: string;
+  coverImage?: string;
   awardNote?: string;
   externalUrl?: string;
+  externalLabel?: string;
   href?: string;
   linkLabel?: string;
   relatedPost?: string;
@@ -18,6 +20,7 @@ export const mainProjects: Project[] = [
     description: "A youth science forum co-created with Anđela Gavrilović at the Mathematical Grammar School, bringing together student research projects, university lectures and a wider community interested in science and innovation.",
     tags: ["Science", "Education", "Youth Forum"],
     coverTheme: "from-cyan-500/70 via-indigo-500/60 to-violet-500/70",
+    coverImage: "/projects/formula.jpg",
     href: "/projects/formula",
     linkLabel: "Explore Formula",
   },
@@ -28,6 +31,7 @@ export const mainProjects: Project[] = [
     awardNote: "First Prize, FilićFilmić Film Festival · Special Award, CityFest International Documentary Film Festival in Niš.",
     tags: ["Documentary", "Film", "MGTV", "Award-winning"],
     coverTheme: "from-rose-500/70 via-orange-400/50 to-amber-400/70",
+    coverImage: "/projects/secanje-na-mihajla-sporica.png",
   },
   {
     slug: "advocating-for-student-rights",
@@ -35,14 +39,17 @@ export const mainProjects: Project[] = [
     description: "Ongoing advocacy through the Union of High School Students of Serbia focused on student rights, participation and the state of education. This includes school phone restrictions, support for students in protests, education analysis and representation in decision-making.",
     tags: ["Student Rights", "Advocacy", "Education", "Youth Participation"],
     coverTheme: "from-indigo-600/70 via-sky-500/50 to-cyan-400/70",
+    coverImage: "/projects/student-rights.JPG",
   },
   {
     slug: "megafon-rs",
-    title: "Megafon.rs",
+    title: "megafon.org.rs",
     description: "A youth media platform publishing texts, opinions and perspectives written by high school students. Selected articles are shared through @mg_blokada, helping student voices reach a wider audience.",
     tags: ["Youth Media", "Student Voices", "Journalism", "Activism"],
     coverTheme: "from-violet-600/70 via-fuchsia-500/50 to-rose-400/70",
+    coverImage: "/projects/megafon.png",
     externalUrl: "https://megafon.org.rs",
+    externalLabel: "megafon.org.rs",
   },
   {
     slug: "graphic-design",
@@ -50,6 +57,9 @@ export const mainProjects: Project[] = [
     description: "I create professional visual communication for student initiatives, activist platforms, educational projects, nonprofit organizations and selected brands. More than 200 visuals support profiles including @studenti_u_blokadi, @etf_blokada and @mg_blokada, spanning campaigns, social graphics, posters, identities and digital materials.",
     tags: ["Graphic Design", "Visual Communication", "Campaigns", "Activism"],
     coverTheme: "from-fuchsia-600/70 via-purple-500/50 to-indigo-400/70",
+    coverImage: "/projects/graphic-design.png",
+    href: "/design",
+    linkLabel: "View design work",
   },
 ];
 

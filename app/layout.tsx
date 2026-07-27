@@ -3,6 +3,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 import ThemeProvider from "@/components/ThemeProvider";
+import Navbar from "@/components/Navbar";
+import LocaleHtmlAttributes from "@/components/LocaleHtmlAttributes";
 
 
 const inter = Inter({
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
   title: "Dositej Jovanović",
   description:
     "Student, youth representative and designer passionate about education, technology and international cooperation.",
+  alternates: { canonical: "/", languages: { en: "/", "sr-Latn": "/sr" } },
 };
 
 
@@ -45,7 +48,8 @@ export default function RootLayout({
       >
 
         <ThemeProvider>
-
+          <LocaleHtmlAttributes />
+          <Navbar />
           {children}
 
         </ThemeProvider>

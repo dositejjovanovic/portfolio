@@ -3,6 +3,20 @@ export type BlogSection = {
   paragraphs: string[];
 };
 
+export type BlogLocale = "en" | "sr";
+
+export type BlogTranslation = {
+  title: string;
+  excerpt: string;
+  category: string;
+  tags: string[];
+  location?: string;
+  organization?: string;
+  sections: BlogSection[];
+  seoTitle?: string;
+  seoDescription?: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -18,6 +32,8 @@ export type BlogPost = {
   relatedProjects?: string[];
   relatedExperiences?: string[];
   content: BlogSection[];
+  /** Reviewed translations only. Existing source copy remains the English fallback. */
+  translations?: Partial<Record<BlogLocale, BlogTranslation>>;
 };
 
 export const blogPosts: BlogPost[] = [
@@ -197,4 +213,23 @@ export const blogPosts: BlogPost[] = [
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getBlogTranslation(post: BlogPost, locale: BlogLocale): BlogTranslation | undefined {
+  if (locale === "en") return post.translations?.en ?? {
+    title: post.title,
+    excerpt: post.excerpt,
+    category: post.category,
+    tags: post.tags,
+    location: post.location,
+    organization: post.organization,
+    sections: post.content,
+    seoTitle: post.title,
+    seoDescription: post.excerpt,
+  };
+  return post.translations?.sr;
+}
+
+export function hasBlogTranslation(post: BlogPost, locale: BlogLocale) {
+  return Boolean(getBlogTranslation(post, locale));
 }

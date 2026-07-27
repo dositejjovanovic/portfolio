@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogArticle from "@/components/blog/BlogArticle";
-import { blogPosts, getBlogPost } from "@/data/blog";
+import { blogPosts, getBlogPost, getBlogTranslation } from "@/data/blog";
 
 export function generateStaticParams() {
   return blogPosts.map(({ slug }) => ({ slug }));
@@ -13,12 +13,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  return { title: `${post.title} | Dositej Jovanović`, description: post.excerpt };
+  const content = getBlogTranslation(post, "en")!;
+  return { title: `${content.seoTitle ?? content.title} | Dositej Jovanović`, description: content.seoDescription ?? content.excerpt, openGraph: { title: content.seoTitle ?? content.title, description: content.seoDescription ?? content.excerpt }, alternates: { canonical: `/blog/${slug}`, languages: { en: `/blog/${slug}`, "sr-Latn": `/sr/blog/${slug}` } } };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
-  return <BlogArticle post={post} />;
+  return <BlogArticle post={post} locale="en" />;
 }
