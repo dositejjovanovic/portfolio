@@ -25,7 +25,10 @@ function readSession(value?: string): Session | null {
   try { const session = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as Session; return session.role === "admin" && session.exp > Date.now() ? session : null; } catch { return null; }
 }
 
-export async function isAdminAuthenticated() { return Boolean(readSession((await cookies()).get(COOKIE_NAME)?.value)); }
+export async function isAdminAuthenticated() {
+  try { return Boolean(readSession((await cookies()).get(COOKIE_NAME)?.value)); } catch { return false; }
+}
+export function isAdminConfigured() { return Boolean(process.env.ADMIN_PASSWORD_HASH && process.env.ADMIN_SESSION_SECRET && process.env.ADMIN_SESSION_SECRET.length >= 32); }
 export async function requireAdmin() { if (!(await isAdminAuthenticated())) redirect("/admin/login"); }
 export async function verifyAdminPassword(password: string) {
   const hash = process.env.ADMIN_PASSWORD_HASH;
