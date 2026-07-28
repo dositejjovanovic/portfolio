@@ -1,0 +1,27 @@
+{
+  "slug": "advocating-for-student-rights",
+  "type": "main",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 2,
+  "coverImage": "/projects/student-rights.JPG",
+  "gallery": [],
+  "tags": [
+    "Student Rights",
+    "Advocacy",
+    "Education",
+    "Youth Participation"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "Advocating for Student Rights",
+      "shortDescription": "Ongoing advocacy through the Union of High School Students of Serbia focused on student rights, participation and the state of education. This includes school phone restrictions, support for students in protests, education analysis and representation in decision-making.",
+      "fullDescription": "Ongoing advocacy through the Union of High School Students of Serbia focused on student rights, participation and the state of education. This includes school phone restrictions, support for students in protests, education analysis and representation in decision-making.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
