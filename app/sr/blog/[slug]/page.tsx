@@ -3,13 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import BlogArticle from "@/components/blog/BlogArticle";
-import { getBlogPost, getBlogTranslation } from "@/data/blog";
+import { getBlogTranslation } from "@/data/blog";
+import { getPublicBlogPost } from "@/lib/content/public-blog";
+
+export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getPublicBlogPost(slug);
   if (!post) return {};
   const content = getBlogTranslation(post, "sr");
   return {
@@ -22,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SerbianBlogArticle({ params }: Props) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getPublicBlogPost(slug);
   if (!post) notFound();
   if (getBlogTranslation(post, "sr")) return <BlogArticle post={post} locale="sr" />;
   return <main className="min-h-screen bg-background px-6 pb-24 pt-32 text-foreground md:px-8"><div className="mx-auto max-w-2xl"><Link href="/sr/blog" className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"><ArrowLeft size={16} /> Nazad na Blog</Link><h1 className="mt-10 text-4xl font-bold tracking-[-.05em]">Tekst je trenutno dostupan na engleskom.</h1><p className="mt-5 text-lg leading-relaxed text-muted">Srpski prevod ovog članka još nije redigovan. Originalni tekst možete pročitati na engleskom.</p><Link href={`/blog/${post.slug}`} className="mt-8 inline-flex rounded-full border border-border bg-card/60 px-5 py-3 text-sm font-medium text-foreground shadow-[0_6px_18px_var(--shadow)] backdrop-blur-md transition-colors hover:border-glow hover:bg-glow/10">Pročitajte na engleskom</Link></div></main>;

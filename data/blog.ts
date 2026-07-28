@@ -29,6 +29,8 @@ export type BlogPost = {
   excerpt: string;
   tags: string[];
   linkedInUrl: string;
+  /** Additional public images managed through the CMS. */
+  gallery?: Array<{ src: string; alt?: string; caption?: string }>;
   relatedProjects?: string[];
   relatedExperiences?: string[];
   content: BlogSection[];

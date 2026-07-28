@@ -1,6 +1,7 @@
 export type FormulaStatistic = { value: number; suffix: string; label: string };
 export type FormulaImage = { src: string; alt: string };
 export type FormulaGalleryGroup = { title: string; images: { src: string; alt: string }[] };
+const galleryImage = (file: string, alt: string): FormulaImage => ({ src: `/api/media?path=${encodeURIComponent(`public/projects/formula/gallery/${file}`)}`, alt });
 type FormulaData = {
   title: string;
   subtitle: string;
@@ -48,9 +49,38 @@ export const formula: FormulaData = {
     { title: "Evaluation", text: "Collecting feedback and identifying possibilities for future development." },
   ],
   gallery: [
-    { title: "Visual identity and promotion", images: [] },
-    { title: "Project stands", images: [] },
-    { title: "Lectures", images: [] },
-    { title: "Event atmosphere", images: [] },
+    {
+      title: "Formula community",
+      images: [
+        galleryImage("DSC00268.jpg", "Formula audience during the programme"),
+        galleryImage("DSC00205.jpg", "Students and visitors at Formula"),
+        galleryImage("DSC_3052.jpg", "Formula participants and mentors"),
+        galleryImage("DSC_3055.jpg", "Formula student team"),
+        galleryImage("DSC_3060.jpg", "Formula organisers and guests"),
+        galleryImage("DSC00578.jpg", "Formula organisers with a guest speaker"),
+      ],
+    },
+    {
+      title: "Project stands",
+      images: [
+        galleryImage("DSC00302.jpg", "Student science demonstration at Formula"),
+        galleryImage("DSC00362.jpg", "Student technology project stand at Formula"),
+        galleryImage("DSC00441.jpg", "Sustainability project stand at Formula"),
+        galleryImage("DSC00461.jpg", "Robotics project stand at Formula"),
+        galleryImage("DSC00476.jpg", "Chemistry experiment at Formula"),
+        galleryImage("DSC00479.jpg", "Students presenting a science project at Formula"),
+        galleryImage("DSC00540.jpg", "Chemistry demonstration at Formula"),
+      ],
+    },
+    {
+      title: "Lectures and presentations",
+      images: [
+        galleryImage("DSC_2796.jpg", "Formula opening presentation"),
+        galleryImage("DSC_2906.jpg", "University lecture at Formula"),
+        galleryImage("DSC00239.jpg", "Student speaker at Formula"),
+        galleryImage("DSC00381.jpg", "Physics lecture at Formula"),
+        galleryImage("DSC_2908.jpg", "Formula organisers during the programme"),
+      ],
+    },
   ] satisfies FormulaGalleryGroup[],
 };

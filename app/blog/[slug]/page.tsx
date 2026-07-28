@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogArticle from "@/components/blog/BlogArticle";
 import { getBlogTranslation } from "@/data/blog";
-import { getPublicBlogPost, getPublicBlogPosts } from "@/lib/content/public-blog";
+import { getPublicBlogPost } from "@/lib/content/public-blog";
 
-export async function generateStaticParams() {
-  return (await getPublicBlogPosts()).map(({ slug }) => ({ slug }));
-}
+export const dynamic = "force-dynamic";
 
 type BlogPostPageProps = { params: Promise<{ slug: string }> };
 

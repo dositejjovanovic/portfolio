@@ -1,24 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import DesignCaseStudy from "@/components/design/DesignCaseStudy";
-import { designProjects, getDesignProject } from "@/data/design-projects";
+import { getPublicDesignProject } from "@/lib/content/public-projects";
 
+export const dynamic = "force-dynamic";
 type DesignPageProps = { params: Promise<{ slug: string }> };
-
-export function generateStaticParams() {
-  return designProjects.map(({ slug }) => ({ slug }));
-}
-
-export async function generateMetadata({ params }: DesignPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getDesignProject(slug);
-  if (!project) return {};
-  return { title: `${project.title} | Dositej Jovanović`, description: project.description };
-}
-
-export default async function DesignProjectPage({ params }: DesignPageProps) {
-  const { slug } = await params;
-  const project = getDesignProject(slug);
-  if (!project) notFound();
-  return <DesignCaseStudy project={project} />;
-}
+export async function generateMetadata({ params }: DesignPageProps): Promise<Metadata> { const { slug } = await params; const project = await getPublicDesignProject(slug, "en"); return project ? { title: `${project.title} | Dositej Jovanović`, description: project.description } : {}; }
+export default async function DesignProjectPage({ params }: DesignPageProps) { const { slug } = await params; const project = await getPublicDesignProject(slug, "en"); if (!project) notFound(); return <DesignCaseStudy project={project} />; }

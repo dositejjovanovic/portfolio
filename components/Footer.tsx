@@ -6,8 +6,7 @@ import Link from "next/link";
 import { adminConfig } from "@/lib/admin/config";
 
 
-export default function Footer({ locale }: { locale: Locale }) {
-  void locale;
+export default function Footer({ locale, note }: { locale: Locale; note?: string }) {
 
 
   return (
@@ -95,7 +94,7 @@ export default function Footer({ locale }: { locale: Locale }) {
 
         >
 
-          Built with
+          {note ?? (locale === "sr" ? "Napravljeno uz radoznalost i pažnju" : "Built with curiosity and care")}
 
           <span
 

@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { getPublicBlogPosts } from "@/lib/content/public-blog";
 import BlogCard from "@/components/blog/BlogCard";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Blog | Dositej Jovanović", description: "Projects, student representation and international experience by Dositej Jovanović." };
 
 export default async function BlogArchivePage() {

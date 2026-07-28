@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import HomePage from "@/components/HomePage";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Dositej Jovanović | Učenik, omladinski predstavnik i dizajner",
   description: "Portfolio Dositeja Jovanovića — učenika, omladinskog predstavnika i dizajnera posvećenog obrazovanju, tehnologiji i međunarodnoj saradnji.",

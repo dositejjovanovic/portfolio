@@ -161,7 +161,7 @@ export default function FormulaProject() {
           <div className="mt-5">
             {gallery.length === 0 ? <FormulaPlaceholder /> : (
               <div className="grid gap-5">
-                {gallery.map((group) => <div key={group.title}><h3 className="mb-3 text-sm font-medium text-foreground">{group.title}</h3></div>)}
+                {gallery.map((group) => <div key={group.title}><h3 className="mb-3 text-sm font-medium text-foreground">{group.title}</h3><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{group.images.map((image, index) => <motion.figure key={image.src} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ delay: index * 0.035 }} className={index === 0 ? "sm:col-span-2 lg:col-span-2" : ""}><div className={`group relative overflow-hidden rounded-[1.25rem] border border-border bg-card ${index === 0 ? "aspect-[16/10]" : "aspect-[4/3]"}`}><img src={image.src} alt={image.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" /></div></motion.figure>)}</div></div>)}
               </div>
             )}
           </div>

@@ -6,8 +6,9 @@ import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import type { Locale } from "@/data/locale";
 
 
-export default function Contact({ locale }: { locale: Locale }) {
-  void locale;
+export default function Contact({ locale, content }: { locale: Locale; content?: { title: string; description: string } }) {
+  const fallback = locale === "sr" ? { title: "Kontakt", description: "Otvoren sam za smislene razgovore, nove saradnje i projekte koji stvaraju stvarnu vrednost." } : { title: "Contact", description: "Interested in education, youth participation, international cooperation or visual communication? Let’s connect." };
+  const values = content ?? fallback;
 
   return (
 
@@ -67,7 +68,7 @@ export default function Contact({ locale }: { locale: Locale }) {
 
         >
 
-          Contact
+          {values.title}
 
         </motion.h2>
 
@@ -106,7 +107,7 @@ export default function Contact({ locale }: { locale: Locale }) {
 
         >
 
-          Interested in education, youth participation, international cooperation or visual communication? Let&apos;s connect.
+          {values.description}
 
         </motion.p>
 

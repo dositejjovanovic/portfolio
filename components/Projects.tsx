@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { OrganizationText } from "@/components/OrganizationLink";
-import { mainProjects, smallerProjects, type Project } from "@/data/projects";
+import { type Project } from "@/data/projects";
 import GlassCard from "@/components/ui/GlassCard";
 import Section from "@/components/ui/Section";
 import TiltCard from "@/components/ui/TiltCard";
@@ -21,4 +21,4 @@ function MainProjectCard({ project, index, locale }: { project: Project; index: 
 
 function SmallerProjectCard({ project, index, locale }: { project: Project; index: number; locale: Locale }) { return <motion.article initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }}><GlassCard className="group h-full p-0"><ProjectCover project={project} compact locale={locale} /><div className="p-4"><h3 className="text-base font-semibold text-foreground md:text-lg">{project.title}</h3><p className="mt-2 text-xs leading-relaxed text-muted md:text-sm">{project.description}</p><div className="mt-4"><Tags tags={project.tags.slice(0, 3)} compact /></div></div></GlassCard></motion.article>; }
 
-export default function Projects({ locale }: { locale: Locale }) { const copy = getCopy(locale).projects; return <Section id="work" eyebrow={copy.eyebrow} title={copy.title}><div><h3 className="mb-3 text-xs font-medium uppercase tracking-[.18em] text-muted">{copy.main}</h3><div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{mainProjects.map((project, index) => <MainProjectCard key={project.slug} project={project} index={index} locale={locale} />)}</div></div><div className="mt-6"><h3 className="mb-3 text-xs font-medium uppercase tracking-[.18em] text-muted">{copy.more}</h3><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{smallerProjects.map((project, index) => <SmallerProjectCard key={project.slug} project={project} index={index} locale={locale} />)}</div></div></Section>; }
+export default function Projects({ locale, mainProjects, smallerProjects }: { locale: Locale; mainProjects: Project[]; smallerProjects: Project[] }) { const copy = getCopy(locale).projects; return <Section id="work" eyebrow={copy.eyebrow} title={copy.title}><div><h3 className="mb-3 text-xs font-medium uppercase tracking-[.18em] text-muted">{copy.main}</h3><div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{mainProjects.map((project, index) => <MainProjectCard key={project.slug} project={project} index={index} locale={locale} />)}</div></div><div className="mt-6"><h3 className="mb-3 text-xs font-medium uppercase tracking-[.18em] text-muted">{copy.more}</h3><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{smallerProjects.map((project, index) => <SmallerProjectCard key={project.slug} project={project} index={index} locale={locale} />)}</div></div></Section>; }

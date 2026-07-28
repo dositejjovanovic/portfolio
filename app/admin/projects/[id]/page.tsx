@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import AdminShell from "@/components/admin/AdminShell";
-import ProjectEditor from "@/components/admin/ProjectEditor";
+import ProjectEditor, { type ManagedProject } from "@/components/admin/ProjectEditor";
 import GitHubSetupNotice from "@/components/admin/GitHubSetupNotice";
 import { requireAdmin } from "@/lib/admin/auth";
-import { getLocalProject } from "@/lib/content/local";
 import { isGitHubContentConfigured } from "@/lib/github/content-client";
-export default async function EditProjectPage({ params }: { params: Promise<{ id: string }> }) { await requireAdmin(); const { id } = await params; let project; try { project = await getLocalProject(id); } catch { notFound(); } return <AdminShell><h1 className="text-4xl font-semibold tracking-[-.05em]">Edit: {project.translations.en.title}</h1>{isGitHubContentConfigured() ? <ProjectEditor project={project} /> : <GitHubSetupNotice />}</AdminShell>; }
+import { getGitHubProject } from "@/lib/github/repository-readers";
+export default async function EditProjectPage({ params }: { params: Promise<{ id: string }> }) { await requireAdmin(); const { id } = await params; const remote = isGitHubContentConfigured(); if (!remote) return <AdminShell><GitHubSetupNotice /></AdminShell>; let project; try { project = await getGitHubProject(id) as ManagedProject; } catch { notFound(); } return <AdminShell><h1 className="text-4xl font-semibold tracking-[-.05em]">Edit: {project.translations.en?.title ?? project.translations.sr?.title ?? project.slug}</h1><ProjectEditor project={project} /></AdminShell>; }
