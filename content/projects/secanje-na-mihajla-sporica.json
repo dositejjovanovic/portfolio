@@ -1,0 +1,27 @@
+{
+  "slug": "secanje-na-mihajla-sporica",
+  "type": "main",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 1,
+  "coverImage": "/projects/secanje-na-mihajla-sporica.png",
+  "gallery": [],
+  "tags": [
+    "Documentary",
+    "Film",
+    "MGTV",
+    "Award-winning"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "Sećanje na Mihajla Sporića",
+      "shortDescription": "An award-winning documentary created through MGTV, preserving the memory and story of Mihajlo Sporić through interviews, archival material and visual storytelling.",
+      "fullDescription": "An award-winning documentary created through MGTV, preserving the memory and story of Mihajlo Sporić through interviews, archival material and visual storytelling.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
