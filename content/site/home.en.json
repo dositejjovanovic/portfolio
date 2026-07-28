@@ -1,0 +1,312 @@
+{
+  "hero": {
+    "identity": "Student · Youth Representative · Designer",
+    "intro": "Student leader, designer and technology enthusiast working at the intersection of education, participation and creative communication.",
+    "supporting": "I turn complex ideas into clear projects, useful systems and opportunities for young people."
+  },
+  "about": {
+    "lead": "I connect ideas, people and institutions through leadership, design and communication.",
+    "paragraphs": [
+      "I’m a student at the Mathematical Grammar School in Belgrade, Board Member & International Officer — Union of High School Students of Serbia, and a designer working across education, student participation and visual communication.",
+      "I combine analytical thinking, creativity and responsibility to turn complex ideas into clear communication, useful projects and work that lasts."
+    ]
+  },
+  "currently": {
+    "items": [
+      "Representing high school students through UNSS",
+      "Leading school media and student initiatives",
+      "Working on international education projects",
+      "Creating visual communication for youth and activist initiatives"
+    ]
+  },
+  "story": {
+    "description": "Discover what matters. Design what works. Deliver what lasts.",
+    "steps": [
+      [
+        "D",
+        "Discover",
+        "Understand the people, context and real problem."
+      ],
+      [
+        "D",
+        "Design",
+        "Turn insight into a clear solution, system or story."
+      ],
+      [
+        "D",
+        "Deliver",
+        "Take responsibility for making it real and lasting."
+      ]
+    ]
+  },
+  "journey": [
+    {
+      "period": "2020–2022",
+      "title": "Founder & Editor-in-Chief",
+      "organisation": "Mali odmor",
+      "description": "Founded and led a monthly school newspaper—the beginning of my creative and organisational journey.",
+      "responsibilities": [
+        "Editorial work",
+        "Media organisation",
+        "Team coordination",
+        "Writing and visual communication"
+      ]
+    },
+    {
+      "period": "2022–2024",
+      "title": "Academic development & student participation",
+      "organisation": "Mathematical Grammar School",
+      "description": "Developed academically while beginning formal student participation.",
+      "responsibilities": [
+        "Primary-level programme",
+        "Student Parliament",
+        "National mathematics and physics awards",
+        "Academic recognition"
+      ]
+    },
+    {
+      "period": "2024–2025",
+      "title": "Editor & Graphic Designer",
+      "organisation": "MGTV",
+      "description": "Worked in school television and media production as a video editor, graphic designer and visual communication contributor.",
+      "responsibilities": [
+        "Video editing",
+        "Graphic design",
+        "Visual communication"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/mgtv-logo.png",
+          "alt": "MGTV logo"
+        }
+      ]
+    },
+    {
+      "period": "2025–2026",
+      "title": "General Secretary & Presidency Member",
+      "organisation": "Student Parliament",
+      "description": "Supported the Parliament’s formal activities, communication and representation.",
+      "responsibilities": [
+        "Institutional coordination",
+        "Strategic communication",
+        "Student representation",
+        "Media coordination"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/student-parliament-log.png",
+          "alt": "Student Parliament logo"
+        }
+      ]
+    },
+    {
+      "period": "2025–present",
+      "title": "Lead Organizer",
+      "organisation": "MGTV",
+      "description": "Coordinate media activities and institutional storytelling for the school community.",
+      "responsibilities": [
+        "Team coordination",
+        "Media strategy",
+        "Event coverage",
+        "Production planning"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/mgtv-logo.png",
+          "alt": "MGTV logo"
+        }
+      ]
+    },
+    {
+      "period": "2025–present",
+      "title": "Head, Sustainable Development Section",
+      "organisation": "Mathematical Grammar School",
+      "description": "Lead sustainability initiatives and the continuation of project activity after formal delivery.",
+      "responsibilities": [
+        "Smart School Garden",
+        "Team leadership",
+        "Project promotion",
+        "Competition participation"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/sustainable-development-logo.png",
+          "alt": "Sustainable Development Section logo"
+        }
+      ]
+    },
+    {
+      "period": "2026",
+      "title": "Founder and Coordinator",
+      "organisation": "Formula — Young Researchers Forum",
+      "description": "Co-founded and coordinated Formula with Anđela Gavrilović, bringing together 38 student project stands, four university lectures, 80+ participants and 500+ visitors.",
+      "responsibilities": [
+        "Science forum",
+        "Project coordination",
+        "Youth research"
+      ],
+      "href": "/projects/formula",
+      "linkLabel": "View project"
+    },
+    {
+      "period": "2026–present",
+      "title": "Board Member & International Officer",
+      "organisation": "Union of High School Students of Serbia",
+      "description": "Represent students nationally and internationally through dialogue, advocacy and cooperation.",
+      "responsibilities": [
+        "National representation",
+        "Institutional dialogue",
+        "International cooperation",
+        "Public communication"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/unss-logo.png",
+          "alt": "UNSS logo"
+        },
+        {
+          "src": "/logos/timeline/obessu-logo.png",
+          "alt": "OBESSU logo"
+        }
+      ]
+    }
+  ],
+  "international": [
+    {
+      "title": "PACT for Mental Health",
+      "city": "Berlin",
+      "country": "Germany",
+      "year": "2026",
+      "organization": "OBESSU",
+      "description": "International OBESSU training focused on mental health, youth participation and education.",
+      "relatedPost": "mental-health-and-meaningful-youth-participation",
+      "featured": true
+    },
+    {
+      "title": "OBESSU General Assembly",
+      "city": "Seville",
+      "country": "Spain",
+      "year": "2026",
+      "organization": "OBESSU",
+      "description": "Represented the Union of High School Students of Serbia in European student cooperation and decision-making.",
+      "featured": true
+    },
+    {
+      "title": "Erasmus+ Mobility",
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "year": "2026",
+      "organization": "Erasmus+",
+      "description": "Participated in a student mobility at Gimnazija Bežigrad, exploring international education, interdisciplinary learning and school cooperation.",
+      "featured": true
+    },
+    {
+      "title": "Digital Challenge",
+      "city": "Timișoara",
+      "country": "Romania",
+      "year": "2025",
+      "description": "Took part in a study visit focused on digital education, followed by project dissemination and mentoring activities.",
+      "featured": true
+    },
+    {
+      "title": "Balkan Student Summer School on Quantum Physics",
+      "city": "Thessaloniki",
+      "country": "Greece",
+      "year": "2025",
+      "organization": "Balkan Physical Union",
+      "description": "Participated in an international academic program connecting secondary-school students with modern physics and research.",
+      "featured": true
+    },
+    {
+      "title": "Unlockit Conference",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "year": "2026",
+      "organization": "Digital Serbia Initiative",
+      "description": "Participated in a conference focused on technology, innovation and the digital society.",
+      "featured": true
+    },
+    {
+      "title": "International school partnership",
+      "city": "Malmö",
+      "country": "Sweden",
+      "year": "2025",
+      "description": "Contributed to hosting students from a partner school in Sweden and strengthening intercultural and institutional cooperation.",
+      "contribution": [
+        "Represented the Mathematical Grammar School",
+        "Represented Serbia in an international school environment"
+      ],
+      "featured": false
+    }
+  ],
+  "awards": [
+    {
+      "field": "Mathematics",
+      "title": "National Mathematics Competition",
+      "level": "Second Prize",
+      "year": "2023"
+    },
+    {
+      "field": "Mathematics",
+      "title": "National Mathematics Competition",
+      "level": "Third Prize",
+      "year": "2022"
+    },
+    {
+      "field": "Mathematics",
+      "title": "National Mathematics Competition",
+      "level": "Third Prize",
+      "year": "2024"
+    },
+    {
+      "field": "Physics",
+      "title": "National Physics Competition, Category A",
+      "level": "Third Prize",
+      "year": "2024"
+    },
+    {
+      "field": "Chemistry",
+      "title": "District Chemistry Competition",
+      "level": "First Prize",
+      "year": "2023"
+    },
+    {
+      "field": "Film",
+      "title": "FilićFilmić International Film Festival",
+      "level": "First Prize",
+      "year": "2025"
+    },
+    {
+      "field": "Film",
+      "title": "CityFest International Documentary Film Festival, Niš",
+      "level": "Special Award"
+    },
+    {
+      "field": "Academic distinctions",
+      "title": "Dositej Diploma in Mathematics"
+    },
+    {
+      "field": "Academic distinctions",
+      "title": "Dositej Diploma in Physics"
+    },
+    {
+      "field": "Academic distinctions",
+      "title": "Dositej Diploma in Chemistry"
+    },
+    {
+      "field": "Academic distinctions",
+      "title": "Dositej Diploma in Informatics"
+    },
+    {
+      "field": "Academic distinctions",
+      "title": "Vuk Diploma"
+    }
+  ],
+  "contact": {
+    "title": "Have an idea worth building?",
+    "description": "I’m always open to meaningful conversations, new collaborations and projects that create real value."
+  },
+  "footer": {
+    "note": "Built with curiosity, care and a belief that young people can shape what comes next."
+  }
+}
