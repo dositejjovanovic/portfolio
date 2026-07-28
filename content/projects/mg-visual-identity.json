@@ -1,0 +1,33 @@
+{
+  "slug": "mg-visual-identity",
+  "type": "design",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 2,
+  "coverImage": "/design/mg-vizuelni-identitet/mg-vizuelni-identitet-cover.png",
+  "gallery": [
+    {
+      "src": "/design/mg-vizuelni-identitet/mg-vizuelni-identitet-1.png",
+      "alt": "Mathematical Grammar School visual identity application one"
+    },
+    {
+      "src": "/design/mg-vizuelni-identitet/mg-vizuelni-identitet-2.png",
+      "alt": "Mathematical Grammar School visual identity application two"
+    }
+  ],
+  "tags": [
+    "Visual identity"
+  ],
+  "internalRoute": "/design/mg-visual-identity",
+  "externalUrl": null,
+  "actionLabel": "View case study",
+  "translations": {
+    "en": {
+      "title": "Mathematical Grammar School — Visual Identity",
+      "shortDescription": "A visual identity and communication system developed for the Mathematical Grammar School and its student organizations.",
+      "fullDescription": "A visual identity and communication system developed for the Mathematical Grammar School and its student organizations.",
+      "actionLabel": "View case study"
+    },
+    "sr": null
+  }
+}
