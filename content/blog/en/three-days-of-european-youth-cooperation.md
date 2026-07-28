@@ -1,8 +1,8 @@
 ---
 slug: three-days-of-european-youth-cooperation
-status: archived
+status: published
 date: 2026-05-11
-updatedAt: 2026-07-28T00:48:29.712Z
+updatedAt: 2026-07-28T00:49:13.110Z
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_from-may-8th-to-10th-i-had-the-incredible-activity-7459548169354498048-5_Ww"
 organization: "European youth event"
 location: ""
@@ -14,7 +14,7 @@ excerpt: "A three-day experience centred on exchange, collaboration and the comm
 
 From 8 to 10 May, I took part in a three-day youth experience that brought together exchange, collaboration and the energy that comes from working with peers across Europe.
 
-## Context
+## Cont
 
 Short, intensive youth events can create a strong foundation for international cooperation. They allow participants to test ideas together, understand different realities and build relationships that continue after the programme ends.
 
