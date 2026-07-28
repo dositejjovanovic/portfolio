@@ -1,0 +1,27 @@
+{
+  "slug": "megafon-rs",
+  "type": "main",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 3,
+  "coverImage": "/projects/megafon.png",
+  "gallery": [],
+  "tags": [
+    "Youth Media",
+    "Student Voices",
+    "Journalism",
+    "Activism"
+  ],
+  "internalRoute": null,
+  "externalUrl": "https://megafon.org.rs",
+  "actionLabel": "megafon.org.rs",
+  "translations": {
+    "en": {
+      "title": "megafon.org.rs",
+      "shortDescription": "A youth media platform publishing texts, opinions and perspectives written by high school students. Selected articles are shared through @mg_blokada, helping student voices reach a wider audience.",
+      "fullDescription": "A youth media platform publishing texts, opinions and perspectives written by high school students. Selected articles are shared through @mg_blokada, helping student voices reach a wider audience.",
+      "actionLabel": "megafon.org.rs"
+    },
+    "sr": null
+  }
+}
