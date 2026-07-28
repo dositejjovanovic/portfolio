@@ -1,0 +1,26 @@
+{
+  "slug": "smart-school-garden",
+  "type": "smaller",
+  "status": "published",
+  "featured": false,
+  "sortOrder": 6,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Sustainability",
+    "Education",
+    "Community"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "Smart School Garden",
+      "shortDescription": "A sustainability initiative maintained and promoted beyond its formal project period.",
+      "fullDescription": "A sustainability initiative maintained and promoted beyond its formal project period.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
