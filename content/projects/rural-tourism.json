@@ -1,0 +1,26 @@
+{
+  "slug": "rural-tourism",
+  "type": "smaller",
+  "status": "published",
+  "featured": false,
+  "sortOrder": 5,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Technology",
+    "Education",
+    "Entrepreneurship"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "Rural Tourism",
+      "shortDescription": "A project application connecting technology, education and rural tourism.",
+      "fullDescription": "A project application connecting technology, education and rural tourism.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
