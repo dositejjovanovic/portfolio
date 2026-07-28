@@ -22,10 +22,41 @@ const projectSchema = z.object({ slug: slugSchema, locale: z.enum(["en", "sr"]),
 const escape = (value: string) => JSON.stringify(value);
 function invalid(message: string): never { throw new Error(message); }
 function tagList(value?: string) { return value?.split(",").map((tag) => tag.trim()).filter(Boolean) ?? []; }
+function normalizeAssetPath(value: unknown) {
+  if (typeof value !== "string") return value;
+  const trimmed = value.trim();
+  if (trimmed.startsWith("/api/media?") || trimmed.startsWith("/api/admin/media?")) {
+    try {
+      const path = new URL(trimmed, "https://portfolio.local").searchParams.get("path");
+      if (path?.startsWith("public/")) return `/${path.slice("public/".length)}`;
+    } catch { /* schema reports invalid paths below */ }
+  }
+  return trimmed.replace(/^public\//, "/");
+}
+function normalizeAssetFields(value: Record<string, FormDataEntryValue>) {
+  const normalized: Record<string, FormDataEntryValue | unknown> = { ...value, coverImage: normalizeAssetPath(value.coverImage) };
+  if (typeof value.gallery === "string") {
+    try {
+      const gallery = JSON.parse(value.gallery) as Array<Record<string, unknown>>;
+      normalized.gallery = JSON.stringify(gallery.map((image) => ({ ...image, src: normalizeAssetPath(image.src) })));
+    } catch { /* the schema returns the useful gallery error */ }
+  }
+  return normalized;
+}
+function blogValidationMessage(error: z.ZodError) {
+  const fields = [...new Set(error.issues.map((issue) => {
+    const root = String(issue.path[0] ?? "");
+    if (root === "coverImage") return "Cover image path";
+    if (root === "gallery") return "Article gallery image path";
+    if (root === "sourceUrl") return "Source / LinkedIn URL";
+    return root || "Blog content";
+  }))];
+  return `Check: ${fields.join(", ")}. Image paths must begin with /uploads/, /projects/, /design/ or /logos/.`;
+}
 
 export async function persistGitHubBlogPost(value: Record<string, FormDataEntryValue>) {
   if (!isGitHubContentConfigured()) invalid("GitHub content storage is not configured.");
-  const parsed = schema.safeParse(value); if (!parsed.success) invalid("Check the required Blog fields and try again."); const post = parsed.data;
+  const parsed = schema.safeParse(normalizeAssetFields(value)); if (!parsed.success) invalid(blogValidationMessage(parsed.error)); const post = parsed.data;
   const frontmatter = [`slug: ${post.slug}`, `status: ${post.status}`, `date: ${post.date}`, `updatedAt: ${new Date().toISOString()}`, `category: ${escape(post.category || "Projects")}`, `tags: ${JSON.stringify(tagList(post.tags))}`, `coverImage: ${escape(post.coverImage || "")}`, `gallery: ${JSON.stringify(post.gallery)}`, `sourceUrl: ${escape(post.sourceUrl || "")}`, `organization: ${escape(post.organization || "")}`, `location: ${escape(post.location || "")}`, `title: ${escape(post.title)}`, `excerpt: ${escape(post.excerpt)}`].join("\n");
   const path = `content/blog/${post.locale}/${post.slug}.md`; let sha: string | undefined; try { sha = (await readRepositoryFile(path)).sha; } catch { /* a new post has no SHA */ } await writeRepositoryFile(path, `---\n${frontmatter}\n---\n\n${post.body}\n`, `cms: ${post.status === "published" ? "publish" : "update"} blog post ${post.slug}`, sha);
   revalidatePath("/"); revalidatePath("/blog"); revalidatePath(`/blog/${post.slug}`); revalidatePath("/sr/blog"); revalidatePath(`/sr/blog/${post.slug}`);
