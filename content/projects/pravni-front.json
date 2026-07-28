@@ -1,0 +1,24 @@
+{
+  "slug": "pravni-front",
+  "type": "design",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 3,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Visual identity"
+  ],
+  "internalRoute": "/design/pravni-front",
+  "externalUrl": null,
+  "actionLabel": "View case study",
+  "translations": {
+    "en": {
+      "title": "Pravni front — Visual Identity",
+      "shortDescription": "A visual identity created for Pravni front, a student organization focused on legal, academic and public-interest initiatives.",
+      "fullDescription": "A visual identity created for Pravni front, a student organization focused on legal, academic and public-interest initiatives.",
+      "actionLabel": "View case study"
+    },
+    "sr": null
+  }
+}
