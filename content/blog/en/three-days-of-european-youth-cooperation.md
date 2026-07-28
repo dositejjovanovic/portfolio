@@ -2,15 +2,14 @@
 slug: three-days-of-european-youth-cooperation
 status: published
 date: 2026-05-11
-updatedAt: 2026-05-11T00:00:00.000Z
-featured: false
+updatedAt: 2026-07-28T19:47:02.206Z
+category: "Events"
+tags: ["international cooperation","youth participation","Europe","events"]
 coverImage: ""
+gallery: [{"src":"/uploads/5cce9c33-f0f9-44a6-ab82-bb12d0cf9ea9-1778494874073.jpg","alt":"","caption":""}]
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_from-may-8th-to-10th-i-had-the-incredible-activity-7459548169354498048-5_Ww"
 organization: "European youth event"
 location: ""
-category: "Events"
-tags: ["international cooperation","youth participation","Europe","events"]
-sortOrder: 7
 title: "Three Days of European Youth Cooperation"
 excerpt: "A three-day experience centred on exchange, collaboration and the common challenges that connect young people across Europe."
 ---
@@ -38,3 +37,4 @@ International youth events make cooperation tangible. They help transform broad 
 ## Conclusion
 
 I left with new perspectives and a stronger commitment to keep connecting student representation in Serbia with international youth cooperation.
+
