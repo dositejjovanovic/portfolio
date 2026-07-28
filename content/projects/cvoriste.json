@@ -1,0 +1,24 @@
+{
+  "slug": "cvoriste",
+  "type": "design",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 4,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Visual identity & interface design"
+  ],
+  "internalRoute": "/design/cvoriste",
+  "externalUrl": null,
+  "actionLabel": "View case study",
+  "translations": {
+    "en": {
+      "title": "Čvorište — UNSS Member Platform",
+      "shortDescription": "A visual and digital communication system for Čvorište, a platform connecting members of the UNSS network and providing internal resources, guidance and support. Visual identity and interface design.",
+      "fullDescription": "A visual and digital communication system for Čvorište, a platform connecting members of the UNSS network and providing internal resources, guidance and support. Visual identity and interface design.",
+      "actionLabel": "View case study"
+    },
+    "sr": null
+  }
+}
