@@ -1,7 +1,6 @@
 import "server-only";
 
-import bcrypt from "bcryptjs";
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { adminConfig } from "@/lib/admin/config";
@@ -28,12 +27,24 @@ function readSession(value?: string): Session | null {
 export async function isAdminAuthenticated() {
   try { return Boolean(readSession((await cookies()).get(COOKIE_NAME)?.value)); } catch { return false; }
 }
-export function isAdminConfigured() { return Boolean(process.env.ADMIN_PASSWORD_HASH && process.env.ADMIN_SESSION_SECRET && process.env.ADMIN_SESSION_SECRET.length >= 32); }
+export function isAdminConfigured() { return Boolean(process.env.ADMIN_PASSWORD && process.env.ADMIN_SESSION_SECRET && process.env.ADMIN_SESSION_SECRET.length >= 32); }
+export function getAdminAuthDiagnostics() {
+  const password = process.env.ADMIN_PASSWORD ?? "";
+  const sessionSecret = process.env.ADMIN_SESSION_SECRET ?? "";
+  return {
+    configured: isAdminConfigured(),
+    passwordExists: password.length > 0,
+    sessionSecretExists: sessionSecret.length > 0,
+    sessionSecretLength: sessionSecret.length,
+  };
+}
 export async function requireAdmin() { if (!(await isAdminAuthenticated())) redirect("/admin/login"); }
 export async function verifyAdminPassword(password: string) {
-  const hash = process.env.ADMIN_PASSWORD_HASH;
-  if (!hash) return false;
-  return bcrypt.compare(password, hash);
+  const expected = process.env.ADMIN_PASSWORD;
+  if (!expected) return false;
+  const receivedDigest = createHash("sha256").update(password).digest();
+  const expectedDigest = createHash("sha256").update(expected).digest();
+  return timingSafeEqual(receivedDigest, expectedDigest);
 }
 export async function createAdminSession() {
   const exp = Date.now() + adminConfig.sessionMaxAgeSeconds * 1000;

@@ -1,0 +1,1 @@
+export default function GitHubSetupNotice() { return <div className="glass-card mt-6 rounded-2xl p-5 text-sm leading-relaxed text-muted">GitHub content storage is not configured. Add the GitHub repository variables to enable commits. The public site continues to use local content.</div>; }
