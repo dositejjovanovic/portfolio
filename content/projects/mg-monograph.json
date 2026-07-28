@@ -1,0 +1,24 @@
+{
+  "slug": "mg-monograph",
+  "type": "design",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 1,
+  "coverImage": "/design/mg-monografija/mg-monografija-cover.png",
+  "gallery": [],
+  "tags": [
+    "Editorial design"
+  ],
+  "internalRoute": "/design/mg-monograph",
+  "externalUrl": "/design/mg-monografija/mg-monografija.pdf",
+  "actionLabel": "View case study",
+  "translations": {
+    "en": {
+      "title": "Mathematical Grammar School Monograph",
+      "shortDescription": "Editorial design and visual development for a school monograph, including layout, typography, image composition and long-form visual storytelling.",
+      "fullDescription": "Editorial design and visual development for a school monograph, including layout, typography, image composition and long-form visual storytelling.",
+      "actionLabel": "View case study"
+    },
+    "sr": null
+  }
+}
