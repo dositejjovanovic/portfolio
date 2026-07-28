@@ -1,0 +1,27 @@
+{
+  "slug": "graphic-design",
+  "type": "main",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 4,
+  "coverImage": "/projects/graphic-design.png",
+  "gallery": [],
+  "tags": [
+    "Graphic Design",
+    "Visual Communication",
+    "Campaigns",
+    "Activism"
+  ],
+  "internalRoute": "/design",
+  "externalUrl": null,
+  "actionLabel": "View design work",
+  "translations": {
+    "en": {
+      "title": "Graphic Design",
+      "shortDescription": "I create professional visual communication for student initiatives, activist platforms, educational projects, nonprofit organizations and selected brands. More than 200 visuals support profiles including @studenti_u_blokadi, @etf_blokada and @mg_blokada, spanning campaigns, social graphics, posters, identities and digital materials.",
+      "fullDescription": "I create professional visual communication for student initiatives, activist platforms, educational projects, nonprofit organizations and selected brands. More than 200 visuals support profiles including @studenti_u_blokadi, @etf_blokada and @mg_blokada, spanning campaigns, social graphics, posters, identities and digital materials.",
+      "actionLabel": "View design work"
+    },
+    "sr": null
+  }
+}
