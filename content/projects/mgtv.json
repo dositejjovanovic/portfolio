@@ -1,0 +1,26 @@
+{
+  "slug": "mgtv",
+  "type": "smaller",
+  "status": "published",
+  "featured": false,
+  "sortOrder": 7,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Media",
+    "Design",
+    "Storytelling"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "MGTV",
+      "shortDescription": "An ongoing school media platform for film, television and community storytelling.",
+      "fullDescription": "An ongoing school media platform for film, television and community storytelling.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
