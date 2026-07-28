@@ -1,0 +1,26 @@
+{
+  "slug": "digital-challenge",
+  "type": "smaller",
+  "status": "published",
+  "featured": false,
+  "sortOrder": 8,
+  "coverImage": null,
+  "gallery": [],
+  "tags": [
+    "Education",
+    "International",
+    "Digital learning"
+  ],
+  "internalRoute": null,
+  "externalUrl": null,
+  "actionLabel": null,
+  "translations": {
+    "en": {
+      "title": "Digital Challenge",
+      "shortDescription": "An international education project connecting digital learning and peer exchange.",
+      "fullDescription": "An international education project connecting digital learning and peer exchange.",
+      "actionLabel": null
+    },
+    "sr": null
+  }
+}
