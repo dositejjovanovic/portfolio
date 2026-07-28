@@ -1,0 +1,90 @@
+{
+  "slug": "studenti-u-blokadi",
+  "type": "design",
+  "status": "published",
+  "featured": true,
+  "sortOrder": 0,
+  "coverImage": "/design/studenti-u-blokadi/studenti-u-blokadi-cover.png",
+  "gallery": [
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi1.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 1",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi2.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 2",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi3.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 3",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi4.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 4",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi5.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 5",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi6.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 6",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi7.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 7",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi8.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 8",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi9.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 9",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi10.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 10",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi11.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 11",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi12.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 12",
+      "label": "Studenti u blokadi"
+    },
+    {
+      "src": "/design/studenti-u-blokadi/studenti-u-blokadi13.png",
+      "alt": "Visual communication for Studenti u blokadi, visual 13",
+      "label": "Studenti u blokadi"
+    }
+  ],
+  "tags": [
+    "Campaign & public-interest communication"
+  ],
+  "internalRoute": "/design/studenti-u-blokadi",
+  "externalUrl": null,
+  "actionLabel": "View case study",
+  "translations": {
+    "en": {
+      "title": "Studenti u blokadi — Visual Communication",
+      "shortDescription": "A selection of visual communication created primarily for @studenti_u_blokadi, alongside related work for @mg_blokada, @etf_blokada and other student-led initiatives. The work includes campaign visuals, public announcements, informational graphics, social media carousels and protest communication. The wider practice includes more than 200 visuals across student, activist and educational initiatives.",
+      "fullDescription": "A selection of visual communication created primarily for @studenti_u_blokadi, alongside related work for @mg_blokada, @etf_blokada and other student-led initiatives. The work includes campaign visuals, public announcements, informational graphics, social media carousels and protest communication. The wider practice includes more than 200 visuals across student, activist and educational initiatives.",
+      "actionLabel": "View case study"
+    },
+    "sr": null
+  }
+}
