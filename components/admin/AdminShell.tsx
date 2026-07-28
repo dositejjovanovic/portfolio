@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [["Overview", "/admin"], ["Blog", "/admin/blog"], ["Projects", "/admin/projects"], ["Pages / Sections", "/admin/sections"], ["Media", "/admin/media"], ["Settings", "/admin/settings"]] as const;
+const links = [["Overview", "/admin"], ["Blog", "/admin/blog"], ["Projects", "/admin/projects"], ["Pages / Sections", "/admin/pages"], ["Media", "/admin/media"], ["Settings", "/admin/settings"]] as const;
 export default function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   async function logout() { await fetch("/api/admin/logout", { method: "POST" }); window.location.assign("/"); }

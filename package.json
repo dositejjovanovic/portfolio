@@ -9,7 +9,10 @@
     "lint": "eslint",
     "admin:hash-password": "node scripts/hash-admin-password.mjs",
     "admin:diagnose-auth": "node --env-file=.env.local scripts/diagnose-admin-auth.mjs",
-    "admin:diagnose-runtime": "node --env-file=.env.local scripts/diagnose-admin-auth.mjs"
+    "admin:diagnose-runtime": "node --env-file=.env.local scripts/diagnose-admin-auth.mjs",
+    "cms:migrate-existing": "tsx scripts/migrate-existing-content.ts",
+    "cms:diagnose-github": "node --env-file=.env.local scripts/diagnose-github-cms.mjs",
+    "cms:push-existing": "node --env-file=.env.local scripts/push-existing-content-to-github.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -36,6 +39,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
+    "tsx": "^4.23.1",
     "typescript": "^5"
   }
 }
