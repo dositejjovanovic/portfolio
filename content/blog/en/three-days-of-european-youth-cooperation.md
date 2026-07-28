@@ -2,10 +2,10 @@
 slug: three-days-of-european-youth-cooperation
 status: published
 date: 2026-05-11
-updatedAt: 2026-07-28T19:48:18.934Z
+updatedAt: 2026-07-28T19:51:52.442Z
 category: "Events"
 tags: ["international cooperation","youth participation","Europe","events"]
-coverImage: ""
+coverImage: "/uploads/5cce9c33-f0f9-44a6-ab82-bb12d0cf9ea9-1778494874073.jpg"
 gallery: [{"src":"/uploads/5cce9c33-f0f9-44a6-ab82-bb12d0cf9ea9-1778494874073.jpg","alt":"","caption":"General Assembly"}]
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_from-may-8th-to-10th-i-had-the-incredible-activity-7459548169354498048-5_Ww"
 organization: "European youth event"
@@ -23,3 +23,4 @@ The session itself was an unforgettable experience. On the first day, we partici
 What made this experience truly special were the people. The delegates in my committee were incredibly supportive, and inspiring, while our chairpersons created an environment where everyone felt heard and motivated to contribute. Beyond the debates and formal procedures, the session was filled with meaningful conversations, new friendships, unforgettable moments, and a shared passion for creating positive change.
 
 Participating in this session strengthened my public speaking, critical thinking, teamwork, and diplomacy skills, but most importantly, it reminded me how powerful young people can be when they work together toward a common goal.
+
