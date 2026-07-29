@@ -42,7 +42,7 @@ export default function Journey({ locale, entries = journey }: { locale: Locale;
                         className="relative grid h-14 w-14 place-items-center rounded-2xl border border-glow/25 bg-card/85 p-2 shadow-[0_12px_28px_var(--shadow),inset_0_1px_0_var(--glass-highlight)] backdrop-blur-xl sm:h-[4.5rem] sm:w-[4.5rem]"
                       >
                         <span className="absolute inset-1 rounded-xl bg-glow/5" />
-                        <Image src={logo.src} alt={logo.alt} width={56} height={56} className="relative h-full w-full object-contain" />
+                        <Image src={logo.src} alt={logo.alt} width={56} height={56} unoptimized className="relative h-full w-full object-contain" />
                       </motion.div>
                     ))}
                   </div>

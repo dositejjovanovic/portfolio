@@ -22,7 +22,7 @@ export default function InternationalExperience({ locale, entries = internationa
             <GlassCard className="group h-full p-0">
               {experience.image ? (
                 <div className="relative h-40 overflow-hidden border-b border-border bg-card">
-                  <Image src={experience.image} alt={experience.imageAlt || `${experience.title} experience`} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                  <Image src={experience.image} alt={experience.imageAlt || `${experience.title} experience`} fill unoptimized className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/35 via-transparent to-transparent" />
                 </div>
               ) : null}
