@@ -1,7 +1,9 @@
 export type FormulaStatistic = { value: number; suffix: string; label: string };
 export type FormulaImage = { src: string; alt: string };
 export type FormulaGalleryGroup = { title: string; images: { src: string; alt: string }[] };
-const galleryImage = (file: string, alt: string): FormulaImage => ({ src: `/api/media?path=${encodeURIComponent(`public/projects/formula/gallery/${file}`)}`, alt });
+// Formula assets are bundled public files, so they should be served directly
+// by Next.js instead of through the GitHub CMS media proxy.
+const galleryImage = (file: string, alt: string): FormulaImage => ({ src: `/projects/formula/${file}`, alt });
 type FormulaData = {
   title: string;
   subtitle: string;
