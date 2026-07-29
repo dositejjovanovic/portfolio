@@ -21,18 +21,21 @@ export default function Section({
   className = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`relative scroll-mt-24 px-5 py-10 sm:px-8 sm:py-12 md:py-14 ${className}`}>
+    <section id={id} className={`group/section relative scroll-mt-24 px-5 py-12 sm:px-8 sm:py-16 md:py-20 ${className}`}>
+      <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent opacity-80 sm:inset-x-8" />
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 max-w-3xl md:mb-8"
+          className="relative mb-8 grid max-w-5xl gap-3 md:mb-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-x-10"
         >
-          {eyebrow && <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.22em] text-muted">{eyebrow}</p>}
-          <h2 className="text-2xl font-bold tracking-[-0.04em] text-foreground sm:text-3xl md:text-4xl">{title}</h2>
-          {description && <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base md:text-lg">{description}</p>}
+          <div>
+            {eyebrow && <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-glow">{eyebrow}</p>}
+            <h2 className="max-w-[14ch] text-3xl font-bold leading-[.98] tracking-[-0.055em] text-foreground sm:text-4xl md:text-5xl">{title}</h2>
+          </div>
+          {description && <p className="max-w-xl self-end text-sm leading-relaxed text-muted sm:text-base md:pb-1 md:text-lg">{description}</p>}
         </motion.div>
         {children}
       </div>
