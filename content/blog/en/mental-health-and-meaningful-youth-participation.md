@@ -2,7 +2,7 @@
 slug: mental-health-and-meaningful-youth-participation
 status: published
 date: 2026-03-28
-updatedAt: 2026-07-29T22:18:41.178Z
+updatedAt: 2026-07-29T22:18:56.694Z
 category: "Education"
 tags: ["mental health","youth participation","education","student wellbeing"]
 coverImage: "/uploads/eba10a70-9cd1-46e4-afdf-ae141cf5d835-berlinpact.jpg"
@@ -14,27 +14,13 @@ title: "Mental Health as a Foundation for Meaningful Youth Participation"
 excerpt: "Why student wellbeing, accessible support and participation belong in the same conversation about education."
 ---
 
-## Introduction
+Berlin was a space for meaningful conversations, new perspectives, and shared commitment to change.
 
-Mental health and youth participation are often discussed separately. In practice, they are closely connected: students are more able to speak up, contribute and lead when they feel seen, supported and safe.
+As an International Officer representing the Union of Secondary School Students of Serbia, I took part in the Policy and Action Training for Mental Health Advocacy within the Mind Matters 2026 project, organized by Organising Bureau of European School Student Unions and supported by the Council of Europe and the European Youth Foundation.
 
-## Context
+Together with young people from across Europe, we explored how student voices can actively shape education systems and policies, especially when it comes to mental health. From exchanging experiences to developing practical approaches, the focus was clear—turning ideas into real impact.
 
-Schools and youth organisations have a responsibility to create environments where wellbeing is not an afterthought. Education should make space for learning, challenge and ambition without ignoring the human experience behind them.
+What stood out the most is how essential it is to move beyond discussions and ensure that mental health support in schools becomes accessible, effective, and student-centered.
 
-## My role
-
-As someone involved in student representation, I see advocacy as an opportunity to connect everyday student experiences with the decisions that shape school life. I contributed to this discussion from that perspective.
-
-## Experience
-
-The conversation highlighted the importance of listening before proposing solutions. It also made clear that young people need more than invitations to participate; they need supportive structures that make participation sustainable.
-
-## Impact
-
-Treating wellbeing as part of educational quality strengthens both students and institutions. It helps create a culture where participation, care and responsibility can reinforce each other.
-
-## Conclusion
-
-I will continue to advocate for student spaces where young people can contribute honestly, grow with confidence and help shape the education they receive.
+Excited to keep building on this experience and continue advocating for change back home.
 
