@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
 import { useEffect } from "react";
@@ -7,16 +8,139 @@ import AnimatedName from "@/components/AnimatedName";
 import HeroStats from "@/components/HeroStats";
 import { getCopy, type Locale } from "@/data/locale";
 
-export default function Hero({ locale, content }: { locale: Locale; content?: { identity: string; intro: string; supporting: string } }) {
+type HeroContent = {
+  identity: string;
+  intro: string;
+  supporting: string;
+};
+
+export default function Hero({ locale, content }: { locale: Locale; content?: HeroContent }) {
   const copy = getCopy(locale).hero;
   const values = { ...copy, ...content };
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 25 });
   const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 25 });
-  useEffect(() => { const move = (event: MouseEvent) => { mouseX.set(event.clientX / window.innerWidth - .5); mouseY.set(event.clientY / window.innerHeight - .5); }; window.addEventListener("mousemove", move); return () => window.removeEventListener("mousemove", move); }, [mouseX, mouseY]);
-  const circleOneX = useTransform(smoothMouseX, [-.5, .5], [58, -58]);
-  const circleOneY = useTransform(smoothMouseY, [-.5, .5], [58, -58]);
-  const orbitRotate = useTransform(smoothMouseX, [-.5, .5], [-14, 14]);
-  return <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-12 pt-28 sm:px-8 md:min-h-[42rem] md:pb-16 md:pt-32"><div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/15 blur-[120px] sm:h-[500px] sm:w-[500px]" /><motion.div style={{ x: circleOneX, y: circleOneY }} className="pointer-events-none absolute -right-40 -top-40 hidden h-[460px] w-[460px] rounded-full border border-border bg-card/30 backdrop-blur-3xl lg:block" /><motion.div style={{ rotate: orbitRotate }} className="pointer-events-none absolute left-[68%] top-1/2 hidden h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-border/50 xl:block" /><div className="relative z-20 mx-auto w-full max-w-7xl xl:max-w-6xl"><motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .55 }} className="text-xs font-semibold uppercase tracking-[.16em] text-foreground/80">{values.identity}</motion.p><motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .15, duration: .65, ease: [0.16, 1, .3, 1] }} className="mt-5 max-w-[11ch] text-[clamp(2.9rem,11vw,3.65rem)] font-bold leading-[.98] tracking-[-.055em] text-foreground sm:max-w-none sm:text-[clamp(3.25rem,5.3vw,5.5rem)] md:whitespace-nowrap">{copy.greeting}&nbsp;<span className="whitespace-nowrap"><AnimatedName />.</span></motion.h1><motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .72, duration: .55 }} className="mt-6 max-w-xl text-[.95rem] leading-relaxed text-muted sm:text-lg">{values.intro}</motion.p><motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .86, duration: .55 }} className="mt-2 max-w-xl text-[.82rem] leading-relaxed text-muted sm:text-base">{values.supporting}</motion.p><HeroStats mouseX={smoothMouseX} mouseY={smoothMouseY} /><motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: .55 }} className="mt-6 flex flex-wrap items-center gap-3"><a href="mailto:dositejjovanovic@gmail.com" aria-label="Email Dositej Jovanović" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02]"><Mail size={17} />{copy.email}</a><a href={locale === "sr" ? "/sr/#work" : "#work"} className="rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background">{copy.explore}</a><span className="inline-flex items-center gap-2 py-2 text-sm text-muted"><MapPin size={15} className="text-glow" />{copy.location}</span></motion.div></div></section>;
+
+  useEffect(() => {
+    const move = (event: MouseEvent) => {
+      mouseX.set(event.clientX / window.innerWidth - 0.5);
+      mouseY.set(event.clientY / window.innerHeight - 0.5);
+    };
+
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, [mouseX, mouseY]);
+
+  const circleOneX = useTransform(smoothMouseX, [-0.5, 0.5], [58, -58]);
+  const circleOneY = useTransform(smoothMouseY, [-0.5, 0.5], [58, -58]);
+  const orbitRotate = useTransform(smoothMouseX, [-0.5, 0.5], [-14, 14]);
+  const portraitX = useTransform(smoothMouseX, [-0.5, 0.5], [-10, 10]);
+  const portraitY = useTransform(smoothMouseY, [-0.5, 0.5], [-8, 8]);
+
+  return (
+    <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-12 pt-28 sm:px-8 md:min-h-[42rem] md:pb-16 md:pt-32">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/15 blur-[120px] sm:h-[500px] sm:w-[500px]" />
+      <motion.div
+        style={{ x: circleOneX, y: circleOneY }}
+        className="pointer-events-none absolute -right-40 -top-40 hidden h-[460px] w-[460px] rounded-full border border-border bg-card/30 backdrop-blur-3xl lg:block"
+      />
+      <motion.div
+        style={{ rotate: orbitRotate }}
+        className="pointer-events-none absolute left-[68%] top-1/2 hidden h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-border/50 xl:block"
+      />
+
+      <div className="relative z-20 mx-auto w-full max-w-7xl xl:max-w-6xl">
+        <div className="relative lg:max-w-[60%]">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground/80"
+          >
+            {values.identity}
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-5 max-w-[11ch] text-[clamp(2.9rem,11vw,3.65rem)] font-bold leading-[0.98] tracking-[-0.055em] text-foreground sm:max-w-none sm:text-[clamp(3.25rem,5.3vw,5.5rem)] md:whitespace-nowrap"
+          >
+            {copy.greeting}&nbsp;
+            <span className="whitespace-nowrap">
+              <AnimatedName />.
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.72, duration: 0.55 }}
+            className="mt-6 max-w-xl text-[0.95rem] leading-relaxed text-muted sm:text-lg"
+          >
+            {values.intro}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.86, duration: 0.55 }}
+            className="mt-2 max-w-xl text-[0.82rem] leading-relaxed text-muted sm:text-base"
+          >
+            {values.supporting}
+          </motion.p>
+        </div>
+
+        <HeroStats mouseX={smoothMouseX} mouseY={smoothMouseY} />
+
+        <motion.div
+          initial={{ opacity: 0, y: 24, rotate: 3 }}
+          animate={{ opacity: 1, y: 0, rotate: 0 }}
+          transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          style={{ x: portraitX, y: portraitY }}
+          className="relative z-0 mx-auto mt-2 w-[min(82vw,21rem)] lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:w-[18rem] lg:-translate-y-1/2 xl:right-[-1.5rem] xl:w-[20.5rem]"
+        >
+          <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-border bg-card/70 p-2 shadow-[0_24px_80px_color-mix(in_srgb,var(--foreground)_15%,transparent)] backdrop-blur-xl">
+            <div className="relative h-full overflow-hidden rounded-[1.55rem]">
+              <Image
+                src="/portrait/dositej-speaking.png"
+                alt="Dositej Jovanović speaking at an event"
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 1023px) 82vw, (max-width: 1279px) 18rem, 20.5rem"
+                className="object-cover object-[38%_center]"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/45 to-transparent" />
+            </div>
+            <div className="pointer-events-none absolute inset-3 rounded-[1.55rem] border border-white/20" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.55 }}
+          className="relative z-20 mt-6 flex flex-wrap items-center gap-3 lg:max-w-[60%]"
+        >
+          <a
+            href="mailto:dositejjovanovic@gmail.com"
+            aria-label="Email Dositej Jovanović"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02]"
+          >
+            <Mail size={17} />
+            {copy.email}
+          </a>
+          <a
+            href={locale === "sr" ? "/sr/#work" : "#work"}
+            className="rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+          >
+            {copy.explore}
+          </a>
+          <span className="inline-flex items-center gap-2 py-2 text-sm text-muted">
+            <MapPin size={15} className="text-glow" />
+            {copy.location}
+          </span>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
