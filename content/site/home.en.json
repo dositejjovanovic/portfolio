@@ -41,18 +41,6 @@
   },
   "journey": [
     {
-      "period": "2020–2022",
-      "title": "Founder & Editor-in-Chief",
-      "organisation": "Mali odmor",
-      "description": "Founded and led a monthly school newspaper—the beginning of my creative and organisational journey.",
-      "responsibilities": [
-        "Editorial work",
-        "Media organisation",
-        "Team coordination",
-        "Writing and visual communication"
-      ]
-    },
-    {
       "period": "2022–2024",
       "title": "Academic development & student participation",
       "organisation": "Mathematical Grammar School",
@@ -65,37 +53,20 @@
       ]
     },
     {
-      "period": "2024–2025",
-      "title": "Editor & Graphic Designer",
-      "organisation": "MGTV",
-      "description": "Worked in school television and media production as a video editor, graphic designer and visual communication contributor.",
+      "period": "2024–present",
+      "title": "Student Activist & Graphic Designer",
+      "organisation": "Student-led movements",
+      "description": "Create visual communication for student-led movements while contributing to advocacy, campaigns and public participation.",
       "responsibilities": [
-        "Video editing",
-        "Graphic design",
-        "Visual communication"
+        "Student activism",
+        "Campaign design",
+        "Social media visuals",
+        "Public communication"
       ],
       "logos": [
         {
-          "src": "/logos/timeline/mgtv-logo.png",
-          "alt": "MGTV logo"
-        }
-      ]
-    },
-    {
-      "period": "2025–2026",
-      "title": "General Secretary & Presidency Member",
-      "organisation": "Student Parliament",
-      "description": "Supported the Parliament’s formal activities, communication and representation.",
-      "responsibilities": [
-        "Institutional coordination",
-        "Strategic communication",
-        "Student representation",
-        "Media coordination"
-      ],
-      "logos": [
-        {
-          "src": "/logos/timeline/student-parliament-log.png",
-          "alt": "Student Parliament logo"
+          "src": "/logos/timeline/studenti.png",
+          "alt": "Student-led movement logo"
         }
       ]
     },
@@ -114,24 +85,6 @@
         {
           "src": "/logos/timeline/mgtv-logo.png",
           "alt": "MGTV logo"
-        }
-      ]
-    },
-    {
-      "period": "2025–present",
-      "title": "Head, Sustainable Development Section",
-      "organisation": "Mathematical Grammar School",
-      "description": "Lead sustainability initiatives and the continuation of project activity after formal delivery.",
-      "responsibilities": [
-        "Smart School Garden",
-        "Team leadership",
-        "Project promotion",
-        "Competition participation"
-      ],
-      "logos": [
-        {
-          "src": "/logos/timeline/sustainable-development-logo.png",
-          "alt": "Sustainable Development Section logo"
         }
       ]
     },
