@@ -2,7 +2,7 @@
 slug: leadership-through-project-management-and-empowerment
 status: published
 date: 2026-04-18
-updatedAt: 2026-07-29T22:23:17.683Z
+updatedAt: 2026-07-29T22:23:34.570Z
 category: "Youth Leadership"
 tags: ["leadership","project management","youth empowerment","collaboration"]
 coverImage: ""
@@ -10,7 +10,7 @@ gallery: []
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_leadership-projectmanagement-youthempowerment-activity-7451087113606905857-drKm"
 organization: "Youth leadership project"
 location: ""
-title: "Leadership Through Project Management and Youth Empowerment"
+title: "Youth Researchers Forum “Formula”"
 excerpt: "A practical reflection on turning a shared idea into a project with clear responsibility, collaboration and purpose."
 ---
 
