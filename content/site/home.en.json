@@ -50,6 +50,16 @@
         "Student Parliament",
         "National mathematics and physics awards",
         "Academic recognition"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/matematicka.png",
+          "alt": "Mathematical Grammar School logo"
+        },
+        {
+          "src": "/logos/timeline/student-parliament-log.png",
+          "alt": "Student Parliament logo"
+        }
       ]
     },
     {
@@ -71,6 +81,41 @@
       ]
     },
     {
+      "period": "2024–2025",
+      "title": "Editor & Graphic Designer",
+      "organisation": "MGTV",
+      "description": "Worked in school television and media production as a video editor, graphic designer and visual communication contributor.",
+      "responsibilities": [
+        "Video editing",
+        "Graphic design",
+        "Visual communication"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/mgtv-logo.png",
+          "alt": "MGTV logo"
+        }
+      ]
+    },
+    {
+      "period": "2025–2026",
+      "title": "General Secretary & Presidency Member",
+      "organisation": "Student Parliament",
+      "description": "Supported the Parliament’s formal activities, communication and representation.",
+      "responsibilities": [
+        "Institutional coordination",
+        "Strategic communication",
+        "Student representation",
+        "Media coordination"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/student-parliament-log.png",
+          "alt": "Student Parliament logo"
+        }
+      ]
+    },
+    {
       "period": "2025–present",
       "title": "Lead Organizer",
       "organisation": "MGTV",
@@ -85,6 +130,24 @@
         {
           "src": "/logos/timeline/mgtv-logo.png",
           "alt": "MGTV logo"
+        }
+      ]
+    },
+    {
+      "period": "2025–present",
+      "title": "Head, Sustainable Development Section",
+      "organisation": "Mathematical Grammar School",
+      "description": "Lead sustainability initiatives and the continuation of project activity after formal delivery.",
+      "responsibilities": [
+        "Smart School Garden",
+        "Team leadership",
+        "Project promotion",
+        "Competition participation"
+      ],
+      "logos": [
+        {
+          "src": "/logos/timeline/sustainable-development-logo.png",
+          "alt": "Sustainable Development Section logo"
         }
       ]
     },
