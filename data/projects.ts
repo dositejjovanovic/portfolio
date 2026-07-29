@@ -15,6 +15,24 @@ export type Project = {
 
 export const mainProjects: Project[] = [
   {
+    slug: "graphic-design",
+    title: "Graphic Design",
+    description: "I create professional visual communication for student initiatives, activist platforms, educational projects, nonprofit organizations and selected brands. More than 200 visuals support profiles including @studenti_u_blokadi, @etf_blokada and @mg_blokada, spanning campaigns, social graphics, posters, identities and digital materials.",
+    tags: ["Graphic Design", "Visual Communication", "Campaigns", "Activism"],
+    coverTheme: "from-fuchsia-600/70 via-purple-500/50 to-indigo-400/70",
+    coverImage: "/projects/graphic-design.png",
+    href: "/design",
+    linkLabel: "View design work",
+  },
+  {
+    slug: "advocating-for-student-rights",
+    title: "Advocating for Student Rights",
+    description: "Ongoing advocacy through the Union of High School Students of Serbia focused on student rights, participation and the state of education. This includes school phone restrictions, support for students in protests, education analysis and representation in decision-making.",
+    tags: ["Student Rights", "Advocacy", "Education", "Youth Participation"],
+    coverTheme: "from-indigo-600/70 via-sky-500/50 to-cyan-400/70",
+    coverImage: "/projects/student-rights.JPG",
+  },
+  {
     slug: "formula-young-researchers-forum",
     title: "Formula — Young Researchers Forum",
     description: "A youth science forum co-created with Anđela Gavrilović at the Mathematical Grammar School, bringing together student research projects, university lectures and a wider community interested in science and innovation.",
@@ -34,14 +52,6 @@ export const mainProjects: Project[] = [
     coverImage: "/projects/secanje-na-mihajla-sporica.png",
   },
   {
-    slug: "advocating-for-student-rights",
-    title: "Advocating for Student Rights",
-    description: "Ongoing advocacy through the Union of High School Students of Serbia focused on student rights, participation and the state of education. This includes school phone restrictions, support for students in protests, education analysis and representation in decision-making.",
-    tags: ["Student Rights", "Advocacy", "Education", "Youth Participation"],
-    coverTheme: "from-indigo-600/70 via-sky-500/50 to-cyan-400/70",
-    coverImage: "/projects/student-rights.JPG",
-  },
-  {
     slug: "megafon-rs",
     title: "megafon.org.rs",
     description: "A youth media platform publishing texts, opinions and perspectives written by high school students. Selected articles are shared through @mg_blokada, helping student voices reach a wider audience.",
@@ -50,16 +60,6 @@ export const mainProjects: Project[] = [
     coverImage: "/projects/megafon.png",
     externalUrl: "https://megafon.org.rs",
     externalLabel: "megafon.org.rs",
-  },
-  {
-    slug: "graphic-design",
-    title: "Graphic Design",
-    description: "I create professional visual communication for student initiatives, activist platforms, educational projects, nonprofit organizations and selected brands. More than 200 visuals support profiles including @studenti_u_blokadi, @etf_blokada and @mg_blokada, spanning campaigns, social graphics, posters, identities and digital materials.",
-    tags: ["Graphic Design", "Visual Communication", "Campaigns", "Activism"],
-    coverTheme: "from-fuchsia-600/70 via-purple-500/50 to-indigo-400/70",
-    coverImage: "/projects/graphic-design.png",
-    href: "/design",
-    linkLabel: "View design work",
   },
 ];
 

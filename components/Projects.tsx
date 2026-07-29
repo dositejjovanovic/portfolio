@@ -28,14 +28,16 @@ function ProjectRail({ children, label }: { children: ReactNode; label: string }
 
   return (
     <div className="relative">
+      <div className="mb-3 hidden justify-end gap-2 lg:flex">
+        <button type="button" onClick={() => scroll(-1)} aria-label={`Previous ${label}`} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card/85 text-foreground shadow-[0_8px_24px_var(--shadow)] backdrop-blur transition-colors hover:border-glow hover:text-glow">
+          <ChevronLeft size={18} />
+        </button>
+        <button type="button" onClick={() => scroll(1)} aria-label={`Next ${label}`} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card/85 text-foreground shadow-[0_8px_24px_var(--shadow)] backdrop-blur transition-colors hover:border-glow hover:text-glow">
+          <ChevronRight size={18} />
+        </button>
+      </div>
       <div ref={railRef} tabIndex={0} aria-label={label} className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 pt-1 outline-none [scrollbar-width:none] sm:-mx-8 sm:px-8 [&::-webkit-scrollbar]:hidden">
         {children}
-      </div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center bg-gradient-to-l from-background via-background/65 to-transparent pl-14 lg:flex">
-        <div className="pointer-events-auto flex gap-2">
-          <button type="button" onClick={() => scroll(-1)} aria-label={`Previous ${label}`} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card/85 text-foreground shadow-[0_8px_24px_var(--shadow)] backdrop-blur transition-colors hover:border-glow hover:text-glow"><ChevronLeft size={18} /></button>
-          <button type="button" onClick={() => scroll(1)} aria-label={`Next ${label}`} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card/85 text-foreground shadow-[0_8px_24px_var(--shadow)] backdrop-blur transition-colors hover:border-glow hover:text-glow"><ChevronRight size={18} /></button>
-        </div>
       </div>
     </div>
   );
@@ -43,7 +45,7 @@ function ProjectRail({ children, label }: { children: ReactNode; label: string }
 
 function ProjectCover({ project, compact = false, locale }: { project: Project; compact?: boolean; locale: Locale }) {
   const copy = getCopy(locale).projects;
-  return <div className={`relative overflow-hidden border-b border-border bg-card ${compact ? "h-28" : "h-44 sm:h-52"}`}>{project.coverImage ? <><Image src={project.coverImage} alt={`${project.title} project cover`} fill sizes={compact ? "(max-width: 640px) 78vw, 17rem" : "(max-width: 640px) 86vw, 25rem"} className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.06]" /><div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80" /></> : <div className="grid h-full place-items-center bg-card px-4 text-center"><span className="text-[11px] font-medium text-muted">{copy.cover}</span></div>}</div>;
+  return <div className={`relative overflow-hidden border-b border-border bg-card ${compact ? "h-28" : "h-44 sm:h-52"}`}>{project.coverImage ? <><Image src={project.coverImage} alt={`${project.title} project cover`} fill unoptimized sizes={compact ? "(max-width: 640px) 78vw, 17rem" : "(max-width: 640px) 86vw, 25rem"} className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.06]" /><div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80" /></> : <div className="grid h-full place-items-center bg-card px-4 text-center"><span className="text-[11px] font-medium text-muted">{copy.cover}</span></div>}</div>;
 }
 
 function MainProjectCard({ project, index, locale }: { project: Project; index: number; locale: Locale }) {

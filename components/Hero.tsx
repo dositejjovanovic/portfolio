@@ -14,6 +14,14 @@ type HeroContent = {
   supporting: string;
 };
 
+const organizationMarks = [
+  { src: "/logos/timeline/matematicka.png", alt: "Mathematical Grammar School" },
+  { src: "/logos/timeline/sustainable-development-logo.png", alt: "Sustainable Development Section" },
+  { src: "/logos/timeline/studenti.png", alt: "Student-led movements" },
+  { src: "/logos/timeline/mgtv-logo.png", alt: "MGTV" },
+  { src: "/logos/timeline/unss-logo.png", alt: "Union of High School Students of Serbia" },
+];
+
 export default function Hero({ locale, content }: { locale: Locale; content?: HeroContent }) {
   const copy = getCopy(locale).hero;
   const values = { ...copy, ...content };
@@ -96,7 +104,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           animate={{ opacity: 1, y: 0, rotate: 0 }}
           transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           style={{ x: portraitX, y: portraitY }}
-          className="relative z-0 mx-auto mt-2 w-[min(82vw,21rem)] lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:w-[18rem] lg:-translate-y-1/2 xl:right-[-1.5rem] xl:w-[20.5rem]"
+          className="relative z-0 mx-auto mt-2 w-[min(82vw,21rem)] lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:w-[18rem] lg:-translate-y-1/2 xl:right-[1rem] xl:w-[18rem]"
         >
           <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-border bg-card/70 p-2 shadow-[0_24px_80px_color-mix(in_srgb,var(--foreground)_15%,transparent)] backdrop-blur-xl">
             <div className="relative h-full overflow-hidden rounded-[1.55rem]">
@@ -112,6 +120,21 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/45 to-transparent" />
             </div>
             <div className="pointer-events-none absolute inset-3 rounded-[1.55rem] border border-white/20" />
+          </div>
+          <div className="absolute -left-5 top-7 hidden flex-col gap-2 lg:flex" aria-label="Organizations and initiatives">
+            {organizationMarks.map((mark, index) => (
+              <motion.div
+                key={mark.src}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.75 + index * 0.06, duration: 0.45 }}
+                whileHover={{ x: -3, scale: 1.06 }}
+                title={mark.alt}
+                className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-glow/30 bg-card/90 p-1.5 shadow-[0_10px_24px_var(--shadow)] backdrop-blur-xl"
+              >
+                <Image src={mark.src} alt={mark.alt} width={36} height={36} unoptimized className="h-full w-full object-contain" />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
