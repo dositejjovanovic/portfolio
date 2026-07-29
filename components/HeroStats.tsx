@@ -1,6 +1,6 @@
 "use client";
 
-import { animate, motion, useInView, useMotionValue, useReducedMotion, type MotionValue } from "framer-motion";
+import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { impactStats, type ImpactStat } from "@/data/impact";
 import { OrganizationText } from "@/components/OrganizationLink";
@@ -17,8 +17,14 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
   return <span ref={reference}>{display}{suffix}</span>;
 }
 
-function DesktopStat({ stat, index }: { stat: ImpactStat; index: number }) {
-  return <motion.div initial={{ opacity: 0, y: 12, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ delay: 0.45 + index * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}><motion.div animate={stat.float} transition={{ duration: stat.float.duration, repeat: Infinity, ease: "easeInOut" }} whileHover={{ y: -3, rotate: 1.5, scale: 1.025 }} className="hero-stat-sphere h-28 w-28 p-3"><div className="hero-stat-reflection" /><div className="relative flex h-full flex-col items-center justify-center text-center"><span className="text-2xl font-bold tracking-[-0.08em] text-foreground"><AnimatedNumber value={stat.value} suffix={stat.displaySuffix} /></span><span className="mt-1 text-[10px] font-medium leading-tight text-foreground">{stat.label}</span><span className="mt-1 text-[8px] leading-snug text-muted"><OrganizationText>{stat.description}</OrganizationText></span></div></motion.div></motion.div>;
+function FloatingStat({ stat, mouseX, mouseY, index }: { stat: ImpactStat; mouseX: MotionValue<number>; mouseY: MotionValue<number>; index: number }) {
+  const { scrollY } = useScroll();
+  const x = useSpring(useTransform(mouseX, [-0.5, 0.5], [stat.parallax.x, -stat.parallax.x]), { stiffness: 45, damping: 23 });
+  const mouseYTransform = useSpring(useTransform(mouseY, [-0.5, 0.5], [stat.parallax.y, -stat.parallax.y]), { stiffness: 45, damping: 23 });
+  const scrollYTransform = useTransform(scrollY, [0, 1000], [0, stat.parallax.scroll]);
+  const y = useTransform([mouseYTransform, scrollYTransform], (values) => Number(values[0]) + Number(values[1]));
+
+  return <motion.div initial={{ opacity: 0, filter: "blur(12px)", scale: 0.82 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} transition={{ delay: 0.35 + index * 0.12, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} style={{ x, y }} className={`pointer-events-auto absolute hidden xl:block ${stat.desktopPosition}`}><motion.div animate={stat.float} transition={{ duration: stat.float.duration, repeat: Infinity, ease: "easeInOut" }} whileHover={{ rotate: 3, scale: 1.025, filter: "brightness(1.08)" }} className="hero-stat-sphere group h-36 w-36 p-4"><div className="hero-stat-reflection" /><div className="relative flex h-full flex-col items-center justify-center text-center"><span className="text-3xl font-bold tracking-[-0.08em] text-foreground"><AnimatedNumber value={stat.value} suffix={stat.displaySuffix} /></span><span className="mt-1 text-xs font-medium leading-tight text-foreground">{stat.label}</span><span className="mt-2 text-[9px] leading-snug text-muted"><OrganizationText>{stat.description}</OrganizationText></span></div></motion.div></motion.div>;
 }
 
 const mobileLayouts = [
@@ -35,7 +41,14 @@ function MobileStat({ stat, index }: { stat: ImpactStat; index: number }) {
 }
 
 export default function HeroStats({ mouseX, mouseY }: { mouseX: MotionValue<number>; mouseY: MotionValue<number> }) {
-  void mouseX;
-  void mouseY;
-  return <><div className="mt-7 hidden max-w-[25rem] items-center gap-3 xl:flex">{impactStats.map((stat, index) => <DesktopStat key={stat.label} stat={stat} index={index} />)}</div><div className="relative mx-auto mt-8 h-[20rem] w-full max-w-[22rem] xl:hidden">{impactStats.map((stat, index) => <MobileStat key={stat.label} stat={stat} index={index} />)}</div></>;
+  return (
+    <>
+      <div className="pointer-events-none absolute inset-0 z-30 hidden xl:block">
+        {impactStats.map((stat, index) => <FloatingStat key={stat.label} stat={stat} mouseX={mouseX} mouseY={mouseY} index={index} />)}
+      </div>
+      <div className="relative mx-auto mt-8 h-[20rem] w-full max-w-[22rem] xl:hidden">
+        {impactStats.map((stat, index) => <MobileStat key={stat.label} stat={stat} index={index} />)}
+      </div>
+    </>
+  );
 }

@@ -15,11 +15,11 @@ type HeroContent = {
 };
 
 const organizationMarks = [
-  { src: "/logos/timeline/matematicka.png", alt: "Mathematical Grammar School" },
-  { src: "/logos/timeline/sustainable-development-logo.png", alt: "Sustainable Development Section" },
-  { src: "/logos/timeline/studenti.png", alt: "Student-led movements" },
-  { src: "/logos/timeline/mgtv-logo.png", alt: "MGTV" },
-  { src: "/logos/timeline/unss-logo.png", alt: "Union of High School Students of Serbia" },
+  { src: "/logos/timeline/matematicka.png", alt: "Mathematical Grammar School", position: "-left-6 top-5" },
+  { src: "/logos/timeline/sustainable-development-logo.png", alt: "Sustainable Development Section", position: "-right-5 top-14" },
+  { src: "/logos/timeline/studenti.png", alt: "Student-led movements", position: "-left-8 top-1/2" },
+  { src: "/logos/timeline/mgtv-logo.png", alt: "MGTV", position: "-right-6 bottom-16" },
+  { src: "/logos/timeline/unss-logo.png", alt: "Union of High School Students of Serbia", position: "left-1/4 -bottom-6" },
 ];
 
 export default function Hero({ locale, content }: { locale: Locale; content?: HeroContent }) {
@@ -121,16 +121,16 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
             </div>
             <div className="pointer-events-none absolute inset-3 rounded-[1.55rem] border border-white/20" />
           </div>
-          <div className="absolute -left-5 top-7 hidden flex-col gap-2 lg:flex" aria-label="Organizations and initiatives">
+          <div className="absolute inset-0 hidden lg:block" aria-label="Organizations and initiatives">
             {organizationMarks.map((mark, index) => (
               <motion.div
                 key={mark.src}
                 initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.75 + index * 0.06, duration: 0.45 }}
+                animate={{ opacity: 1, x: [0, index % 2 ? 3 : -3, 0], y: [0, index % 2 ? 5 : -5, 0] }}
+                transition={{ delay: 0.75 + index * 0.06, duration: 4.5 + index * 0.4, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ x: -3, scale: 1.06 }}
                 title={mark.alt}
-                className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-glow/30 bg-card/90 p-1.5 shadow-[0_10px_24px_var(--shadow)] backdrop-blur-xl"
+                className={`absolute grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-glow/30 bg-card/90 p-1.5 shadow-[0_10px_24px_var(--shadow)] backdrop-blur-xl ${mark.position}`}
               >
                 <Image src={mark.src} alt={mark.alt} width={36} height={36} unoptimized className="h-full w-full object-contain" />
               </motion.div>
