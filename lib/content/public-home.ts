@@ -5,6 +5,7 @@ import { journey, type JourneyEntry } from "@/data/experience";
 import { internationalExperiences, type InternationalExperience } from "@/data/international";
 import { getCopy, type Locale } from "@/data/locale";
 import { isGitHubContentConfigured, readRepositoryFile } from "@/lib/github/content-client";
+import { repositoryMediaUrl } from "@/lib/content/repository-media";
 
 export type HomeContent = {
   hero: { identity: string; intro: string; supporting: string };
@@ -39,6 +40,16 @@ export async function getPublicHomeContent(locale: Locale): Promise<HomeContent>
   try {
     const file = await readRepositoryFile(`content/site/home.${locale}.json`);
     const parsed = JSON.parse(file.content) as Partial<HomeContent>;
+    const journeyItems = Array.isArray(parsed.journey)
+      ? parsed.journey.map((entry) => ({
+          ...entry,
+          logos: entry.logos?.map((logo) => ({ ...logo, src: repositoryMediaUrl(logo.src) ?? logo.src })),
+        }))
+      : fallback.journey;
+    const internationalItems = Array.isArray(parsed.international)
+      ? parsed.international.map((entry) => ({ ...entry, image: repositoryMediaUrl(entry.image) ?? entry.image }))
+      : fallback.international;
+
     return {
       ...fallback,
       ...parsed,
@@ -48,8 +59,8 @@ export async function getPublicHomeContent(locale: Locale): Promise<HomeContent>
       story: { ...fallback.story, ...parsed.story },
       contact: { ...fallback.contact, ...parsed.contact },
       footer: { ...fallback.footer, ...parsed.footer },
-      journey: Array.isArray(parsed.journey) ? parsed.journey : fallback.journey,
-      international: Array.isArray(parsed.international) ? parsed.international : fallback.international,
+      journey: journeyItems,
+      international: internationalItems,
       awards: Array.isArray(parsed.awards) ? parsed.awards : fallback.awards,
     };
   } catch { return fallback; }

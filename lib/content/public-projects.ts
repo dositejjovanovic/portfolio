@@ -4,6 +4,7 @@ import { mainProjects as fallbackMain, smallerProjects as fallbackSmall, type Pr
 import { designProjects as fallbackDesign, type DesignProject } from "@/data/design-projects";
 import type { Locale } from "@/data/locale";
 import { isGitHubContentConfigured, listRepositoryDirectory, readRepositoryFile } from "@/lib/github/content-client";
+import { repositoryMediaUrl } from "@/lib/content/repository-media";
 
 type StoredProject = {
   slug: string;
@@ -20,10 +21,10 @@ type StoredProject = {
 };
 
 const baseProjects = [...fallbackMain, ...fallbackSmall];
-// Content saved by the CMS is committed under /public. Once Vercel deploys the
-// commit, those paths are regular static assets and should not depend on a
-// runtime GitHub API proxy to render on the public site.
-const publicMediaUrl = (path?: string | null) => path?.startsWith("/") ? path : undefined;
+// CMS content is fetched from GitHub at request time, so use the same
+// authenticated server-side source for its media too. Static fallback data
+// continues to use direct /public URLs.
+const publicMediaUrl = repositoryMediaUrl;
 
 function toProject(stored: StoredProject, locale: Locale = "en"): Project | null {
   if (stored.status !== "published" || (stored.type !== "main" && stored.type !== "smaller")) return null;
