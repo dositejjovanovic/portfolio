@@ -20,7 +20,10 @@ type StoredProject = {
 };
 
 const baseProjects = [...fallbackMain, ...fallbackSmall];
-const publicMediaUrl = (path?: string | null) => path?.startsWith("/") ? `/api/media?path=${encodeURIComponent(`public${path}`)}` : undefined;
+// Content saved by the CMS is committed under /public. Once Vercel deploys the
+// commit, those paths are regular static assets and should not depend on a
+// runtime GitHub API proxy to render on the public site.
+const publicMediaUrl = (path?: string | null) => path?.startsWith("/") ? path : undefined;
 
 function toProject(stored: StoredProject, locale: Locale = "en"): Project | null {
   if (stored.status !== "published" || (stored.type !== "main" && stored.type !== "smaller")) return null;

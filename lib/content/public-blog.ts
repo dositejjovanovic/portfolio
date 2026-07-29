@@ -4,7 +4,9 @@ import { isGitHubContentConfigured, listRepositoryDirectory, readRepositoryFile 
 
 const field = (source: string, key: string) => source.match(new RegExp(`^${key}:\\s*(.+)$`, "m"))?.[1]?.replace(/^"|"$/g, "") ?? "";
 const list = (value: string) => { try { return JSON.parse(value) as string[]; } catch { return []; } };
-const publicMediaUrl = (path: string) => path.startsWith("/") ? `/api/media?path=${encodeURIComponent(`public${path}`)}` : undefined;
+// Blog media is committed to /public by the CMS, so serve it directly from
+// Vercel after deployment rather than routing every image through GitHub.
+const publicMediaUrl = (path: string) => path.startsWith("/") ? path : undefined;
 function sections(markdown: string): BlogSection[] { const parts = markdown.trim().split(/^##\s+/m).filter(Boolean); return parts.map((part) => { const [heading, ...paragraphs] = part.split("\n"); return { heading: heading.trim() as BlogSection["heading"], paragraphs: paragraphs.join("\n").trim().split(/\n{2,}/).filter(Boolean) }; }); }
 function gallery(value: string): BlogPost["gallery"] {
   try {
