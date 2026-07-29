@@ -2,39 +2,22 @@
 slug: learning-through-youth-participation
 status: published
 date: 2026-03-21
-updatedAt: 2026-03-21T00:00:00.000Z
-featured: false
+updatedAt: 2026-07-29T21:27:22.616Z
+category: "International Experience"
+tags: ["youth participation","international cooperation","education","student representation"]
 coverImage: ""
+gallery: []
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_im-grateful-for-the-opportunity-to-participate-activity-7441109267841064960-LCO2"
 organization: "Youth participation programme"
 location: ""
-category: "International Experience"
-tags: ["youth participation","international cooperation","education","student representation"]
-sortOrder: 0
-title: "Learning Through Youth Participation"
+title: "Panel Discussion: Introduction of national textbooks "
 excerpt: "A reflective look at participating in an international youth setting and the value of bringing a student perspective into shared conversations."
 ---
 
-## Introduction
+I’m grateful for the opportunity to participate as the youngest panelist in the discussion “Uniformity of Opinion,” held on March 3rd at the Museum of the 1990s in Belgrade.
 
-I had the opportunity to take part in a youth-focused international experience that reinforced a simple idea: young people contribute most when participation is treated as meaningful work rather than a symbolic gesture.
+The panel focused on the introduction of national textbooks and the role of students in education reforms.
 
-## Context
+During the panel, I spoke about how much students’ voices are truly heard in decision-making processes, and why it is essential for young people to be active participants, not just observers of changes that directly affect them.
 
-International youth programmes create space for students and young people to compare challenges, exchange methods and find common ground across different educational systems. They are an important bridge between local experience and wider European cooperation.
-
-## My role
-
-I joined the conversation as a student representative and participant, bringing the perspective of a young person who cares deeply about education, participation and the conditions in which students learn.
-
-## Experience
-
-The most valuable part was listening closely to peers with different backgrounds while recognising how many of our concerns were shared. It was a reminder that collaboration depends on curiosity, clear communication and the willingness to learn from one another.
-
-## Impact
-
-Experiences like this strengthen the confidence to contribute beyond one’s immediate environment. They also make international cooperation practical: a way to bring better questions, ideas and partnerships back to student communities.
-
-## Conclusion
-
-I want to keep building on these exchanges by connecting student representation in Serbia with the wider conversations shaping youth participation across Europe.
+I strongly believe that meaningful education reform cannot happen without including those it impacts the most - students.
