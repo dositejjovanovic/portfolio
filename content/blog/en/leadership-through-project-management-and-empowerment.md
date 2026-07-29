@@ -2,39 +2,26 @@
 slug: leadership-through-project-management-and-empowerment
 status: published
 date: 2026-04-18
-updatedAt: 2026-04-18T00:00:00.000Z
-featured: false
+updatedAt: 2026-07-29T22:23:17.683Z
+category: "Youth Leadership"
+tags: ["leadership","project management","youth empowerment","collaboration"]
 coverImage: ""
+gallery: []
 sourceUrl: "https://www.linkedin.com/posts/dositej-jovanovi%C4%87-b91b3235a_leadership-projectmanagement-youthempowerment-activity-7451087113606905857-drKm"
 organization: "Youth leadership project"
 location: ""
-category: "Youth Leadership"
-tags: ["leadership","project management","youth empowerment","collaboration"]
-sortOrder: 2
 title: "Leadership Through Project Management and Youth Empowerment"
 excerpt: "A practical reflection on turning a shared idea into a project with clear responsibility, collaboration and purpose."
 ---
 
-## Introduction
+I am honored to have contributed to the first Youth Researchers Forum “Formula”, held on April 3rd at the Mathematical Grammar School in Belgrade (Serbia) , where I served as Project Coordinator.
 
-Leadership is less about having all the answers and more about helping a group move from intention to action. This project experience gave me another opportunity to reflect on the discipline behind that process.
+This event brought together around 80 young researchers presenting their work at 38 stands, along with nearly 500 visitors who had the opportunity to explore innovative ideas and scientific projects created by students.
 
-## Context
+The forum also featured inspiring lectures from distinguished university professors and researchers, creating a unique bridge between secondary and higher education.
 
-Youth initiatives often begin with strong ideas but succeed through planning, trust and sustained follow-through. Project management gives those ideas a structure without taking away the creativity that makes them valuable.
+As one of the coordinators, I was responsible for helping lead the program and overseeing the organizational and logistical aspects of the event. It was a valuable experience in leadership, teamwork, and project management, but above all, it was inspiring to see so many young people passionate about science and innovation.
 
-## My role
+YRF Formula has shown great potential to become a long-term tradition that promotes research, curiosity, and academic excellence among youth.
 
-I contributed as a young person interested in leadership, organisation and communication. My focus was on understanding how responsibilities can be shared clearly while keeping the project connected to the people it serves.
-
-## Experience
-
-Working through tasks, timelines and different perspectives reinforced the value of preparation. It also showed me that empowerment grows when people are trusted with real ownership rather than simply assigned work.
-
-## Impact
-
-These skills transfer directly into student representation, design work and community projects. Better organisation gives young people more room to make ideas real and to create results that last beyond one event.
-
-## Conclusion
-
-I am continuing to develop a leadership style that is practical, collaborative and grounded in the belief that young people are capable of shaping ambitious projects.
+Grateful to everyone who contributed to making this event a success. Looking forward to future projects and even bigger ideas ahead.
