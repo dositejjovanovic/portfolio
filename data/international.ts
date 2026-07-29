@@ -1,4 +1,17 @@
-export type InternationalExperience = { title: string; city: string; country: string; year: string; organization?: string; role?: string; description: string; contribution?: string[]; relatedPost?: string; featured?: boolean };
+export type InternationalExperience = {
+  title: string;
+  city: string;
+  country: string;
+  year: string;
+  organization?: string;
+  role?: string;
+  description: string;
+  contribution?: string[];
+  relatedPost?: string;
+  featured?: boolean;
+  image?: string;
+  imageAlt?: string;
+};
 
 export const internationalExperiences: InternationalExperience[] = [
   { title: "PACT for Mental Health", city: "Berlin", country: "Germany", year: "2026", organization: "OBESSU", description: "International OBESSU training focused on mental health, youth participation and education.", relatedPost: "mental-health-and-meaningful-youth-participation", featured: true },
