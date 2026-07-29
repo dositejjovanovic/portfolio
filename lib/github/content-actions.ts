@@ -9,7 +9,7 @@ import { isGitHubContentConfigured, readRepositoryFile, writeRepositoryFile } fr
 import { z } from "zod";
 import { defaultHomeContent, type HomeContent } from "@/lib/content/public-home";
 
-const publicAssetPath = z.string().regex(/^\/(?:uploads|projects|design|logos)\/[a-zA-Z0-9_./-]+$/).max(300).optional().or(z.literal(""));
+const publicAssetPath = z.string().regex(/^\/(?:uploads|projects|design|logos|experiences)\/[a-zA-Z0-9_./-]+$/).max(300).optional().or(z.literal(""));
 const gallerySchema = z.string().max(12000).optional().transform((value, ctx) => {
   if (!value) return [] as Array<{ src: string; alt?: string; caption?: string }>;
   try {

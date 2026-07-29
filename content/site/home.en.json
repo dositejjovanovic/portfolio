@@ -196,7 +196,9 @@
       "organization": "OBESSU",
       "description": "International OBESSU training focused on mental health, youth participation and education.",
       "relatedPost": "mental-health-and-meaningful-youth-participation",
-      "featured": true
+      "featured": true,
+      "image": "/experiences/pact-berlin.jpg",
+      "imageAlt": "PACT for Mental Health participants in Berlin"
     },
     {
       "title": "OBESSU General Assembly",
@@ -205,7 +207,9 @@
       "year": "2026",
       "organization": "OBESSU",
       "description": "Represented the Union of High School Students of Serbia in European student cooperation and decision-making.",
-      "featured": true
+      "featured": true,
+      "image": "/experiences/obessu-general-assembly.jpg",
+      "imageAlt": "OBESSU General Assembly"
     },
     {
       "title": "Erasmus+ Mobility",
@@ -214,7 +218,9 @@
       "year": "2026",
       "organization": "Erasmus+",
       "description": "Participated in a student mobility at Gimnazija Bežigrad, exploring international education, interdisciplinary learning and school cooperation.",
-      "featured": true
+      "featured": true,
+      "image": "/experiences/erasmus-bezigrad.jpg",
+      "imageAlt": "Erasmus+ mobility at Gimnazija Bežigrad"
     },
     {
       "title": "Digital Challenge",
@@ -222,7 +228,9 @@
       "country": "Romania",
       "year": "2025",
       "description": "Took part in a study visit focused on digital education, followed by project dissemination and mentoring activities.",
-      "featured": true
+      "featured": true,
+      "image": "/experiences/digital-challenge.jpg",
+      "imageAlt": "Digital Challenge experience"
     },
     {
       "title": "Balkan Student Summer School on Quantum Physics",
@@ -240,7 +248,9 @@
       "year": "2026",
       "organization": "Digital Serbia Initiative",
       "description": "Participated in a conference focused on technology, innovation and the digital society.",
-      "featured": true
+      "featured": true,
+      "image": "/experiences/unlockit.jpg",
+      "imageAlt": "Unlockit Conference"
     },
     {
       "title": "International school partnership",
