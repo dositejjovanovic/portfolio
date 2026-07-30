@@ -172,6 +172,12 @@
         "Project coordination",
         "Youth research"
       ],
+      "logos": [
+        {
+          "src": "/logos/timeline/formula.png",
+          "alt": "Formula — Young Researchers Forum logo"
+        }
+      ],
       "href": "/projects/formula",
       "linkLabel": "View project"
     },
