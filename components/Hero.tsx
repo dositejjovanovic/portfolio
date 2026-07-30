@@ -109,13 +109,13 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-border bg-card/70 p-2 shadow-[0_24px_80px_color-mix(in_srgb,var(--foreground)_15%,transparent)] backdrop-blur-xl">
             <div className="relative h-full overflow-hidden rounded-[1.55rem]">
               <Image
-                src="/portrait/dositej-speaking.png"
-                alt="Dositej Jovanović speaking at an event"
+                src="/portrait/dositej-portrait-cutout.png"
+                alt="Dositej Jovanović"
                 fill
                 priority
                 unoptimized
                 sizes="(max-width: 1023px) 82vw, (max-width: 1279px) 18rem, 20.5rem"
-                className="object-cover object-[38%_center]"
+                className="object-contain object-center"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/45 to-transparent" />
             </div>
