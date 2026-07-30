@@ -79,7 +79,7 @@ export default function FormulaProject() {
           </div>
           {formula.cover ? (
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-border">
-              <Image src={formula.cover.src} alt={formula.cover.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-contain" priority />
+              <Image src={formula.cover.src} alt={formula.cover.alt} fill unoptimized sizes="(max-width: 1024px) 100vw, 40vw" className="object-contain" priority />
             </div>
           ) : <FormulaPlaceholder label="Formula — Young Researchers Forum" />}
         </header>

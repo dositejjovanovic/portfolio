@@ -30,6 +30,7 @@ export const formula: FormulaData = {
   organizers: "Dositej Jovanović and Anđela Gavrilović",
   summary: "A youth science forum bringing student research, university knowledge and a wider community together in one space.",
   tags: ["Science", "Education", "Youth"],
+  cover: galleryImage("formula-hero.png", "Formula — Young Researchers Forum visual identity"),
   statistics: [
     { value: 38, suffix: "", label: "Project stands" },
     { value: 4, suffix: "", label: "University lectures" },
