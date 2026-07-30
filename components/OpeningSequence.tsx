@@ -28,7 +28,8 @@ type SequenceLayerProps = {
 function SequenceLayer({ progress, start, end, children, className = "", sectionId }: SequenceLayerProps) {
   const enter = start + (end - start) * 0.2;
   const leave = end - (end - start) * 0.2;
-  const opacity = useTransform(progress, [start, enter, leave, end], [0, 1, 1, 0]);
+  // The first scene must already be visible before the visitor starts scrolling.
+  const opacity = useTransform(progress, [start, enter, leave, end], [start === 0 ? 1 : 0, 1, 1, 0]);
   const y = useTransform(progress, [start, enter, leave, end], [64, 0, 0, -64]);
   const scale = useTransform(progress, [start, enter, leave, end], [0.97, 1, 1, 1.025]);
 
