@@ -22,6 +22,13 @@ const organizationMarks = [
   { src: "/logos/timeline/unss-logo.png", alt: "Union of High School Students of Serbia", position: "left-1/4 -bottom-6" },
 ];
 
+const heroDestinations = [
+  { id: "about", en: "About", sr: "O meni" },
+  { id: "journey", en: "Journey", sr: "Put" },
+  { id: "work", en: "Work", sr: "Rad" },
+  { id: "contact", en: "Contact", sr: "Kontakt" },
+];
+
 export default function Hero({ locale, content }: { locale: Locale; content?: HeroContent }) {
   const copy = getCopy(locale).hero;
   const values = { ...copy, ...content };
@@ -163,6 +170,24 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
             {copy.location}
           </span>
         </motion.div>
+
+        <motion.nav
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.12, duration: 0.6 }}
+          aria-label={locale === "sr" ? "Brza navigacija" : "Quick navigation"}
+          className="relative z-20 mt-10 hidden w-fit items-center gap-1 rounded-2xl border border-border bg-card/65 p-1.5 shadow-[0_16px_42px_color-mix(in_srgb,var(--foreground)_12%,transparent)] backdrop-blur-xl lg:flex"
+        >
+          {heroDestinations.map((destination) => (
+            <a
+              key={destination.id}
+              href={locale === "sr" ? `/sr/#${destination.id}` : `#${destination.id}`}
+              className="rounded-xl px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
+            >
+              {locale === "sr" ? destination.sr : destination.en}
+            </a>
+          ))}
+        </motion.nav>
       </div>
     </section>
   );
