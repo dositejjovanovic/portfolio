@@ -47,7 +47,7 @@ export default function Story({ locale, content }: { locale: Locale; content?: {
         >
           <span className="relative grid place-items-center">
             <span className="absolute h-36 w-36 rounded-full border border-glow/35 bg-glow/5 shadow-[0_0_80px_color-mix(in_srgb,var(--glow)_22%,transparent)]" />
-            <span className="relative flex items-end text-[clamp(5.5rem,17vw,9rem)] font-bold leading-none tracking-[-0.14em] text-foreground">3<span className="text-glow">D</span><span className="mb-[0.13em] ml-[0.11em] text-[0.22em] font-medium tracking-[-0.04em] text-muted/85">ositej</span></span>
+            <span className="relative flex items-center text-[clamp(3rem,8vw,6.5rem)] font-bold leading-none tracking-[-0.1em] text-foreground">3<span className="text-glow">D</span><span className="ml-[0.06em] font-bold tracking-[-0.1em] text-muted/85">ositej</span></span>
             <span className="mt-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-muted">Hover or tap to explore</span>
           </span>
         </motion.button>
