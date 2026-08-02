@@ -36,8 +36,8 @@
   --glass: rgba(255, 255, 255, 0.78);
   --glass-highlight: rgba(255, 255, 255, 0.92);
   --shadow: rgba(18, 18, 18, 0.09);
-  --font-sans: "Miranda Sans", Inter, Arial, sans-serif;
-  --font-display: "The Zondaya Gevola", "Space Grotesk", Arial, sans-serif;
+  --font-sans: "Miranda Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);
 
 }
 
