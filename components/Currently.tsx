@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { OrganizationText } from "@/components/OrganizationLink";
 import GlassCard from "@/components/ui/GlassCard";
 import { getCopy, type Locale } from "@/data/locale";
@@ -10,56 +9,40 @@ type StatementProps = {
   item: string;
   index: number;
   total: number;
-  progress: MotionValue<number>;
   reduceMotion: boolean | null;
 };
 
-function CurrentStatement({ item, index, total, progress, reduceMotion }: StatementProps) {
-  const start = index / total;
-  const end = (index + 1) / total;
-  const enter = start + (end - start) * 0.18;
-  const leave = start + (end - start) * 0.76;
-  const isLast = index === total - 1;
-  // The final statement deliberately remains on screen until the sticky scene
-  // releases. Otherwise its exit animation leaves a blank viewport at the end.
-  const range = isLast ? [start, enter, leave, 1] : [start, enter, leave, end];
-  const opacity = useTransform(progress, range, isLast ? [0, 1, 1, 1] : [0, 1, 1, 0]);
-  const y = useTransform(progress, range, isLast ? [72, 0, 0, 0] : [72, 0, 0, -72]);
-  const scale = useTransform(progress, range, isLast ? [0.96, 1, 1, 1] : [0.96, 1, 1, 1.035]);
-
+function CurrentStatement({ item, index, total, reduceMotion }: StatementProps) {
   return (
-    <motion.div
-      aria-hidden={reduceMotion ? undefined : true}
-      style={reduceMotion ? undefined : { opacity, y, scale }}
-      className="absolute inset-0 flex items-center"
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 56, scale: 0.98 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.42 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="relative grid min-h-[58svh] place-items-center border-t border-border/80 py-16 first:border-t-0"
     >
-      <div className="max-w-6xl">
-        <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-glow">
-          0{index + 1} / 0{total}
+      <div className="pointer-events-none absolute inset-y-12 right-[7%] aspect-square rounded-full border border-border/60" />
+      <div className="pointer-events-none absolute right-[15%] top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-glow/15 blur-[80px]" />
+
+      <div className="relative w-full max-w-6xl">
+        <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-glow">
+          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </p>
-        <p className="max-w-[15ch] text-[clamp(3rem,8vw,7.6rem)] font-bold leading-[0.9] tracking-[-0.065em] text-foreground">
+        <p className="max-w-[14ch] text-[clamp(3.6rem,8vw,8rem)] font-medium leading-[0.86] tracking-[-0.075em] text-foreground">
           <OrganizationText>{item}</OrganizationText>
         </p>
       </div>
-    </motion.div>
+    </motion.article>
   );
-}
-
-function ProgressMeter({ index, total, progress }: Omit<StatementProps, "item" | "reduceMotion">) {
-  const scaleX = useTransform(progress, [index / total, (index + 1) / total], [0, 1]);
-
-  return <motion.span className="h-1 flex-1 rounded-full bg-glow/70" style={{ scaleX, transformOrigin: "left" }} />;
 }
 
 export default function Currently({ locale, items }: { locale: Locale; items?: string[] }) {
   const copy = getCopy(locale).currently;
   const values = items ?? copy.items;
-  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
 
   return (
-    <section id="currently" ref={sectionRef} className="relative scroll-mt-24 bg-background px-5 py-12 sm:px-8 sm:py-16 md:py-20 lg:py-0">
+    <section id="currently" className="relative scroll-mt-24 bg-background px-5 py-12 sm:px-8 sm:py-16 md:py-20 lg:py-0">
       <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent sm:inset-x-8" />
 
       <div className="mx-auto max-w-7xl lg:hidden">
@@ -68,7 +51,7 @@ export default function Currently({ locale, items }: { locale: Locale; items?: s
         <div className="grid gap-3">
           {values.map((item, index) => (
             <GlassCard key={item} className="p-5">
-              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-glow">0{index + 1}</p>
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-glow">{String(index + 1).padStart(2, "0")}</p>
               <p className="text-2xl font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
                 <OrganizationText>{item}</OrganizationText>
               </p>
@@ -77,34 +60,21 @@ export default function Currently({ locale, items }: { locale: Locale; items?: s
         </div>
       </div>
 
-      <div className="relative mx-auto hidden max-w-7xl lg:block" style={{ height: `${Math.max(values.length * 42, 168)}vh` }}>
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden py-24">
-          <div className="pointer-events-none absolute -right-28 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-border/60 bg-card/20 blur-[1px]" />
-          <div className="pointer-events-none absolute right-[14%] top-[20%] h-32 w-32 rounded-full bg-glow/20 blur-[70px]" />
-
-          <div className="relative w-full">
-            <div className="mb-10 flex items-end justify-between border-b border-border/75 pb-5">
-              <div>
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-glow">{copy.eyebrow}</p>
-                <h2 className="text-[clamp(2.2rem,4vw,4.5rem)] font-bold leading-none tracking-[-0.06em] text-foreground">{copy.title}</h2>
-              </div>
-              <p className="mb-1 hidden max-w-[17rem] text-right text-sm leading-relaxed text-muted xl:block">
-                {locale === "sr" ? "Nastavi kroz sekvencu da vidiš na čemu trenutno radim." : "Scroll through the sequence to see what I’m working on now."}
-              </p>
-            </div>
-
-            <div className="relative h-[min(42vh,31rem)]">
-              {values.map((item, index) => (
-                <CurrentStatement key={item} item={item} index={index} total={values.length} progress={scrollYProgress} reduceMotion={reduceMotion} />
-              ))}
-            </div>
-
-            <div className="mt-8 flex gap-2" aria-hidden="true">
-              {values.map((item, index) => (
-                <ProgressMeter key={item} index={index} total={values.length} progress={scrollYProgress} />
-              ))}
-            </div>
+      <div className="mx-auto hidden max-w-7xl lg:block">
+        <div className="sticky top-0 z-10 flex min-h-[8.5rem] items-end justify-between border-b border-border/80 bg-background/95 pb-5 pt-10 backdrop-blur-xl">
+          <div>
+            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-glow">{copy.eyebrow}</p>
+            <h2 className="text-[clamp(2.2rem,4vw,4.5rem)] font-bold leading-none tracking-[-0.06em] text-foreground">{copy.title}</h2>
           </div>
+          <p className="mb-1 hidden max-w-[17rem] text-right text-sm leading-relaxed text-muted xl:block">
+            {locale === "sr" ? "Kroz ritam trenutnog rada." : "A moving index of what I’m focused on now."}
+          </p>
+        </div>
+
+        <div>
+          {values.map((item, index) => (
+            <CurrentStatement key={item} item={item} index={index} total={values.length} reduceMotion={reduceMotion} />
+          ))}
         </div>
       </div>
     </section>
