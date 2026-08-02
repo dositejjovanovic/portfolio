@@ -59,7 +59,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
   const portraitY = useTransform(smoothMouseY, [-0.5, 0.5], [-8, 8]);
 
   return (
-    <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-14 pt-28 sm:px-8 md:min-h-[45rem] md:pb-16 md:pt-32">
+    <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-12 pt-28 sm:px-8 md:min-h-[42rem] md:pb-12 md:pt-28">
       <div className="editorial-frame pointer-events-none absolute inset-0 opacity-50" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/10 blur-[120px] sm:h-[500px] sm:w-[500px]" />
       <motion.div
@@ -71,13 +71,13 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
         className="pointer-events-none absolute left-[68%] top-1/2 hidden h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-border/50 xl:block"
       />
 
-      <div className="pointer-events-none absolute inset-x-0 top-[23%] hidden overflow-hidden xl:block">
-        <motion.p initial={{ opacity: 0, x: -56 }} animate={{ opacity: 0.09, x: 0 }} transition={{ delay: 0.18, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
+      <div className="pointer-events-none absolute inset-x-0 top-[18%] hidden overflow-hidden xl:block">
+        <motion.p initial={{ opacity: 0, x: -56 }} animate={{ opacity: 0.055, x: 0 }} transition={{ delay: 0.18, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
           {roleRibbon[locale]}{roleRibbon[locale]}
         </motion.p>
       </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-[7%] hidden overflow-hidden xl:block">
-        <motion.p initial={{ opacity: 0, x: 64 }} animate={{ opacity: 0.07, x: 0 }} transition={{ delay: 0.32, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
+      <div className="pointer-events-none absolute inset-x-0 bottom-[5%] hidden overflow-hidden xl:block">
+        <motion.p initial={{ opacity: 0, x: 64 }} animate={{ opacity: 0.045, x: 0 }} transition={{ delay: 0.32, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
           {roleRibbon[locale]}{roleRibbon[locale]}
         </motion.p>
       </div>
@@ -128,7 +128,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           animate={{ opacity: 1, y: 0, rotate: 0 }}
           transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           style={{ x: portraitX, y: portraitY }}
-          className="relative z-0 mx-auto mt-2 w-[min(82vw,21rem)] lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:w-[18rem] lg:-translate-y-1/2 xl:right-[1rem] xl:w-[18rem]"
+          className="relative z-0 mx-auto mt-2 w-[min(82vw,21rem)] lg:absolute lg:right-0 lg:top-1/2 lg:mt-0 lg:w-[17rem] lg:-translate-y-1/2 xl:right-[1rem] xl:w-[17rem]"
         >
           <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-border bg-card/70 p-2 shadow-[0_24px_80px_color-mix(in_srgb,var(--foreground)_15%,transparent)] backdrop-blur-xl">
             <div className="relative h-full overflow-hidden rounded-[1.55rem]">
@@ -166,7 +166,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.55 }}
-          className="relative z-20 mt-6 flex flex-wrap items-center gap-3 lg:max-w-[60%]"
+          className="relative z-20 mt-5 flex flex-wrap items-center gap-3 lg:max-w-[60%]"
         >
           <a
             href="mailto:dositejjovanovic@gmail.com"
@@ -193,7 +193,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.12, duration: 0.6 }}
           aria-label={locale === "sr" ? "Brza navigacija" : "Quick navigation"}
-          className="relative z-20 mt-10 hidden w-fit items-center gap-1 border-y border-border py-2 lg:flex"
+          className="relative z-20 mt-8 hidden w-fit items-center gap-1 border-y border-border py-2 lg:flex"
         >
           {heroDestinations.map((destination) => (
             <a

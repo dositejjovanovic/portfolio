@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { memo, useMemo, useRef } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 
 const columns = 12;
 const rows = 7;
@@ -51,9 +51,25 @@ const SignalDot = memo(function SignalDot({ column, row, activeSignal }: { colum
 
 export default function ContactSignalField({ activeSignal, pointer }: { activeSignal: Signal; pointer: PointerPosition }) {
   const reduceMotion = useReducedMotion();
-  const fieldRef = useRef<HTMLDivElement>(null);
+  const [field, setField] = useState<HTMLDivElement | null>(null);
+  const [bounds, setBounds] = useState<DOMRect | null>(null);
+
+  useEffect(() => {
+    if (!field) return;
+
+    const updateBounds = () => setBounds(field.getBoundingClientRect());
+    updateBounds();
+    const observer = new ResizeObserver(updateBounds);
+    observer.observe(field);
+    window.addEventListener("resize", updateBounds);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateBounds);
+    };
+  }, [field]);
+
   const connection = useMemo(() => {
-    const bounds = fieldRef.current?.getBoundingClientRect();
     if (!bounds || !pointer || activeSignal === null) return null;
 
     const x = pointer.x - bounds.left;
@@ -70,10 +86,10 @@ export default function ContactSignalField({ activeSignal, pointer }: { activeSi
       angle: Math.atan2(y - anchor.y, x - anchor.x) * (180 / Math.PI),
       anchor,
     };
-  }, [activeSignal, pointer]);
+  }, [activeSignal, bounds, pointer]);
 
   return (
-    <div ref={fieldRef} aria-hidden="true" className="pointer-events-none absolute bottom-0 right-0 hidden w-[min(48vw,42rem)] translate-y-[17%] md:block">
+    <div ref={setField} aria-hidden="true" className="pointer-events-none absolute bottom-0 right-0 hidden w-[min(48vw,42rem)] translate-y-[17%] md:block">
       <div className="grid grid-cols-12 gap-x-3 gap-y-3 opacity-80">
         {dots.map(({ column, row }) => {
           return (

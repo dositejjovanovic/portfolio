@@ -31,7 +31,7 @@ export default function Story({ locale, content }: { locale: Locale; content?: {
           const bounds = event.currentTarget.getBoundingClientRect();
           setPointer({ x: (event.clientX - bounds.left) / bounds.width - 0.5, y: (event.clientY - bounds.top) / bounds.height - 0.5 });
         }}
-        className="group relative min-h-[24rem] overflow-hidden rounded-[2rem] border border-border bg-card/65 p-3 shadow-[0_24px_80px_var(--shadow)] backdrop-blur-xl sm:min-h-[20rem] sm:p-4"
+        className="group relative min-h-[22rem] overflow-hidden rounded-[2rem] border border-border bg-card/65 p-3 shadow-[0_24px_80px_var(--shadow)] backdrop-blur-xl sm:min-h-[18rem] sm:p-4"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,color-mix(in_srgb,var(--glow)_17%,transparent),transparent_56%)]" />
         <div className="pointer-events-none absolute -left-20 top-1/2 h-52 w-52 -translate-y-1/2 rounded-full border border-glow/20" />
@@ -52,7 +52,7 @@ export default function Story({ locale, content }: { locale: Locale; content?: {
           </span>
         </motion.button>
 
-        <div className="relative z-10 grid min-h-[22.5rem] grid-cols-1 gap-3 sm:min-h-[18rem] sm:grid-cols-3">
+        <div className="relative z-10 grid min-h-[20.5rem] grid-cols-1 gap-3 sm:min-h-[16rem] sm:grid-cols-3">
           {values.steps.map(([letter, title, description], index) => {
             const isActive = active === index;
             const horizontal = (index - 1) * 6;
