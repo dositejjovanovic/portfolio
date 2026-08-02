@@ -9,6 +9,7 @@ import ContactSignalField from "@/components/ui/ContactSignalField";
 
 export default function Contact({ locale, content }: { locale: Locale; content?: { title: string; description: string } }) {
   const [activeSignal, setActiveSignal] = useState<0 | 1 | 2 | null>(null);
+  const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null);
   const fallback = locale === "sr"
     ? { title: "Kontakt", description: "Otvoren sam za smislene razgovore, nove saradnje i projekte koji stvaraju stvarnu vrednost." }
     : { title: "Contact", description: "Interested in education, youth participation, international cooperation or visual communication? Let’s connect." };
@@ -19,10 +20,10 @@ export default function Contact({ locale, content }: { locale: Locale; content?:
     { label: "Instagram", href: "https://www.instagram.com/_dositej/", icon: FaInstagram, external: true },
   ];
 
-  return <section id="contact" onPointerLeave={() => setActiveSignal(null)} className="relative overflow-hidden border-t border-border bg-[#0c0c0b] px-5 py-24 text-[#f5f5f1] sm:px-8 md:px-12 md:py-36">
+  return <section id="contact" onPointerMove={(event) => setPointer({ x: event.clientX, y: event.clientY })} onPointerLeave={() => { setActiveSignal(null); setPointer(null); }} className="relative overflow-hidden border-t border-border bg-[#0c0c0b] px-5 py-24 text-[#f5f5f1] sm:px-8 md:px-12 md:py-36">
     <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/15" />
     <div className="pointer-events-none absolute bottom-0 left-[8%] h-52 w-52 rounded-full bg-white/10 blur-[100px]" />
-    <ContactSignalField activeSignal={activeSignal} />
+    <ContactSignalField activeSignal={activeSignal} pointer={pointer} />
     <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:gap-24">
       <motion.div initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .75, ease: [0.16, 1, .3, 1] }}>
         <p className="editorial-kicker text-white/55">{locale === "sr" ? "Sledeća saradnja" : "The next collaboration"}</p>
