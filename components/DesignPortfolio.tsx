@@ -6,10 +6,10 @@ import GlassCard from "@/components/ui/GlassCard";
 import Section from "@/components/ui/Section";
 
 const work = [
-  ["Visual identities", "Logo systems & branding", "from-indigo-400/70 via-sky-300/60 to-blue-600/70", "md:col-span-2"],
-  ["Editorial posters", "Culture & events", "from-violet-400/70 via-indigo-300/60 to-cyan-400/70", ""],
-  ["Social visuals", "Campaign storytelling", "from-sky-300/70 via-blue-500/60 to-indigo-500/70", ""],
-  ["Digital interfaces", "UI design", "from-indigo-500/70 via-blue-300/60 to-slate-500/70", "md:col-span-2"],
+  ["Visual identities", "Logo systems & branding", "from-neutral-900/70 via-neutral-600/60 to-stone-300/70", "md:col-span-2"],
+  ["Editorial posters", "Culture & events", "from-stone-800/70 via-neutral-600/60 to-stone-300/70", ""],
+  ["Social visuals", "Campaign storytelling", "from-neutral-700/70 via-stone-500/60 to-stone-300/70", ""],
+  ["Digital interfaces", "UI design", "from-neutral-900/70 via-neutral-500/60 to-stone-400/70", "md:col-span-2"],
 ] as const;
 
 export default function DesignPortfolio() {

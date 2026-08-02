@@ -21,21 +21,23 @@
 
 :root {
 
-  --background: #f7f7f2;
+  --background: #ffffff;
 
-  --foreground: #171716;
+  --foreground: #121212;
 
-  --card: #fcfcf8;
+  --card: #ffffff;
 
-  --border: #d8d8cf;
+  --border: #e5e5e1;
 
-  --muted: #696963;
+  --muted: #6b6b66;
 
-  --glow: #6058d9;
+  --glow: #20201e;
 
-  --glass: rgba(252, 252, 248, 0.74);
+  --glass: rgba(255, 255, 255, 0.78);
   --glass-highlight: rgba(255, 255, 255, 0.92);
-  --shadow: rgba(24, 24, 21, 0.1);
+  --shadow: rgba(18, 18, 18, 0.09);
+  --font-sans: "Miranda Sans", Inter, Arial, sans-serif;
+  --font-display: "The Zondaya Gevola", "Space Grotesk", Arial, sans-serif;
 
 }
 
@@ -43,21 +45,21 @@
 
 .dark {
 
-  --background: #11110f;
+  --background: #0c0c0b;
 
-  --foreground: #ffffff;
+  --foreground: #f5f5f1;
 
-  --card: #181816;
+  --card: #151514;
 
-  --border: #363631;
+  --border: #30302d;
 
-  --muted: #b6b6ac;
+  --muted: #aaa9a3;
 
-  --glow: #aaa5ff;
+  --glow: #deded6;
 
-  --glass: rgba(24, 24, 22, 0.72);
+  --glass: rgba(21, 21, 20, 0.76);
   --glass-highlight: rgba(255, 255, 255, 0.10);
-  --shadow: rgba(0, 0, 0, 0.34);
+  --shadow: rgba(0, 0, 0, 0.4);
 
 }
 
@@ -85,7 +87,7 @@ body {
 
   color: var(--foreground);
 
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans);
 
 }
 
@@ -222,23 +224,23 @@ h1,
 h2,
 h3 {
 
-  font-family: "The Zondaya Gevola", var(--font-space), Georgia, serif;
+  font-family: var(--font-display);
 
 }
 
 /* Editorial opening — scoped so existing sections keep their established visual system. */
 .opening-display {
-  font-family: "The Zondaya Gevola", "Iowan Old Style", "Baskerville", Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 400;
 }
 
 .opening-sequence {
-  --opening-sans: "Miranda Sans", var(--font-inter), sans-serif;
+  --opening-sans: var(--font-sans);
   font-family: var(--opening-sans);
 }
 
 .editorial-kicker {
-  font-family: var(--opening-sans, var(--font-inter), sans-serif);
+  font-family: var(--opening-sans, var(--font-sans), sans-serif);
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -260,10 +262,10 @@ h3 {
   aspect-ratio: 1;
   width: min(100%, 48rem);
   margin-inline: auto;
-  border: 1px solid rgba(20, 20, 20, 0.13);
+  border: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
   border-radius: 9999px;
-  background: radial-gradient(circle at 39% 32%, rgba(255, 255, 255, 0.92), rgba(241, 240, 232, 0.66) 45%, rgba(224, 223, 216, 0.72));
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.95), 0 42px 100px rgba(22, 22, 19, 0.12);
+  background: radial-gradient(circle at 39% 32%, color-mix(in srgb, var(--card) 96%, white), color-mix(in srgb, var(--card) 78%, var(--background)) 45%, color-mix(in srgb, var(--border) 76%, var(--background)));
+  box-shadow: inset 0 1px var(--glass-highlight), 0 42px 100px var(--shadow);
   isolation: isolate;
   overflow: hidden;
 }
@@ -272,12 +274,12 @@ h3 {
 .opening-orb-meridian,
 .opening-orb-equator {
   position: absolute;
-  border: 1px solid rgba(20, 20, 20, 0.16);
+  border: 1px solid color-mix(in srgb, var(--foreground) 18%, transparent);
   border-radius: 9999px;
   pointer-events: none;
 }
 
-.opening-orb-halo { inset: 6%; border-color: rgba(20, 20, 20, 0.1); }
+.opening-orb-halo { inset: 6%; border-color: color-mix(in srgb, var(--foreground) 11%, transparent); }
 .opening-orb-equator { left: 6%; right: 6%; top: 48%; height: 18%; transform: rotate(-11deg); }
 .opening-orb-meridian { top: 8%; bottom: 8%; width: 43%; }
 .opening-orb-meridian-one { left: 28%; transform: rotate(22deg); }
@@ -287,7 +289,7 @@ h3 {
   position: absolute;
   z-index: 2;
   max-width: 10ch;
-  color: rgba(20, 20, 20, 0.9);
+  color: color-mix(in srgb, var(--foreground) 90%, transparent);
   font-size: clamp(0.68rem, 1.35vw, 1.08rem);
   font-weight: 600;
   letter-spacing: -0.045em;
@@ -297,9 +299,9 @@ h3 {
   animation: opening-orbit 18s ease-in-out infinite alternate;
 }
 
-.opening-orb-word-1 { animation-delay: -5s; color: rgba(20, 20, 20, 0.58); }
+.opening-orb-word-1 { animation-delay: -5s; color: color-mix(in srgb, var(--foreground) 62%, transparent); }
 .opening-orb-word-2 { animation-delay: -11s; filter: blur(0.35px); }
-.opening-orb-word-3 { animation-delay: -15s; color: rgba(20, 20, 20, 0.42); filter: blur(0.7px); }
+.opening-orb-word-3 { animation-delay: -15s; color: color-mix(in srgb, var(--foreground) 46%, transparent); filter: blur(0.7px); }
 
 .opening-orb-core {
   position: absolute;
@@ -310,11 +312,11 @@ h3 {
   width: 3.8rem;
   height: 3.8rem;
   place-items: center;
-  border: 1px solid rgba(20, 20, 20, 0.2);
+  border: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
   border-radius: 9999px;
-  background: rgba(247, 247, 242, 0.74);
-  box-shadow: 0 10px 24px rgba(20, 20, 20, 0.08);
-  color: #141414;
+  background: color-mix(in srgb, var(--card) 74%, transparent);
+  box-shadow: 0 10px 24px var(--shadow);
+  color: var(--foreground);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.08em;

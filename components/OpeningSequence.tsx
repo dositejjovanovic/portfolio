@@ -114,7 +114,7 @@ export default function OpeningSequence({ locale }: { locale: Locale; content: O
   };
 
   return (
-    <section className="opening-sequence relative overflow-hidden bg-[#f7f7f2] text-[#141414]" aria-label={locale === "sr" ? "Uvod" : "Introduction"}>
+    <section className="opening-sequence relative overflow-hidden bg-background text-foreground" aria-label={locale === "sr" ? "Uvod" : "Introduction"}>
       <div className="opening-grain pointer-events-none absolute inset-0" />
 
       <section className="relative flex min-h-[100svh] items-start px-5 pb-16 pt-32 sm:px-8 md:px-12 lg:px-16 lg:pt-40">
@@ -126,10 +126,10 @@ export default function OpeningSequence({ locale }: { locale: Locale; content: O
           variants={reveal}
           transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-black/45">Dositej Jovanović · 2026</p>
+          <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-muted">Dositej Jovanović · 2026</p>
           <h1 className="opening-display text-[clamp(5.4rem,18vw,19rem)] leading-[0.72] tracking-[-0.09em]">I am</h1>
         </motion.div>
-        <p className="absolute bottom-8 right-5 max-w-[16ch] text-right text-xs leading-relaxed text-black/50 sm:right-8 md:right-12 lg:right-16">{locale === "sr" ? "Portfolio u nastajanju" : "A portfolio in motion"}</p>
+        <p className="absolute bottom-8 right-5 max-w-[16ch] text-right text-xs leading-relaxed text-muted sm:right-8 md:right-12 lg:right-16">{locale === "sr" ? "Portfolio u nastajanju" : "A portfolio in motion"}</p>
       </section>
 
       <section id="about" className="relative flex min-h-[118svh] flex-col justify-center overflow-hidden px-5 py-24 sm:px-8 md:px-12 lg:px-16">
@@ -152,7 +152,7 @@ export default function OpeningSequence({ locale }: { locale: Locale; content: O
           {copy.conclusion}
         </motion.p>
         <motion.p
-          className="mt-14 max-w-sm text-base leading-relaxed text-black/60 sm:text-lg"
+          className="mt-14 max-w-sm text-base leading-relaxed text-muted sm:text-lg"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -170,9 +170,9 @@ export default function OpeningSequence({ locale }: { locale: Locale; content: O
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-black/45">{copy.cloudLabel}</p>
+            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-muted">{copy.cloudLabel}</p>
             <h2 className="opening-display max-w-[7ch] text-[clamp(3.7rem,7vw,8.4rem)] leading-[0.8] tracking-[-0.08em]">{copy.cloudLead}</h2>
-            <p className="mt-8 max-w-xs text-sm leading-relaxed text-black/55">{locale === "sr" ? "Reči se približavaju, gube fokus i ponovo se povezuju — baš kao rad koji se razvija između ljudi, ideja i projekata." : "Words move closer, fall out of focus and reconnect — like work that develops between people, ideas and projects."}</p>
+            <p className="mt-8 max-w-xs text-sm leading-relaxed text-muted">{locale === "sr" ? "Reči se približavaju, gube fokus i ponovo se povezuju — baš kao rad koji se razvija između ljudi, ideja i projekata." : "Words move closer, fall out of focus and reconnect — like work that develops between people, ideas and projects."}</p>
           </motion.div>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, scale: 0.88, filter: "blur(22px)" }}
@@ -183,7 +183,7 @@ export default function OpeningSequence({ locale }: { locale: Locale; content: O
             <WordOrb locale={locale} />
           </motion.div>
         </div>
-        <p className="absolute bottom-8 left-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-black/40 sm:left-8 md:left-12 lg:left-16">{copy.cloudNote}</p>
+        <p className="absolute bottom-8 left-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-muted sm:left-8 md:left-12 lg:left-16">{copy.cloudNote}</p>
       </section>
     </section>
   );
