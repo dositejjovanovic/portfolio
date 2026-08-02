@@ -5,7 +5,6 @@ import Contact from "@/components/Contact";
 import Currently from "@/components/Currently";
 import CursorGlow from "@/components/CursorGlow";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import InternationalExperience from "@/components/InternationalExperience";
 import Journey from "@/components/Journey";
 import OpeningSequence from "@/components/OpeningSequence";
@@ -24,7 +23,9 @@ export default async function HomePage({ locale }: { locale: Locale }) {
     <div className="pointer-events-none absolute bottom-[10%] left-[-200px] h-[350px] w-[350px] rounded-full bg-glow/10 blur-[140px]" />
     <CursorGlow />
     <OpeningSequence locale={locale} content={{ hero: home.hero, about: home.about, currently: home.currently, story: home.story }} />
-    <div className="lg:hidden"><Hero locale={locale} content={home.hero} /><About locale={locale} content={home.about} /><Currently locale={locale} items={home.currently.items} /><Story locale={locale} content={home.story} /></div>
+    <About locale={locale} content={home.about} />
+    <Currently locale={locale} items={home.currently.items} />
+    <Story locale={locale} content={home.story} />
     <Journey locale={locale} entries={home.journey} /><InternationalExperience locale={locale} entries={home.international} /><Projects locale={locale} mainProjects={projects.main} smallerProjects={projects.smaller} />
     <Achievements locale={locale} items={home.awards} /><Blog locale={locale} posts={posts} /><Contact locale={locale} content={home.contact} /><Footer locale={locale} note={home.footer.note} />
   </main>;

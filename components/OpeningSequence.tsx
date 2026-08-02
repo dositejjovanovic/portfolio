@@ -1,148 +1,190 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useRef, type ReactNode } from "react";
-import AnimatedName from "@/components/AnimatedName";
-import { OrganizationText } from "@/components/OrganizationLink";
-import { getCopy, type Locale } from "@/data/locale";
-
-type RuleStep = [letter: string, title: string, description: string];
+import { motion, useReducedMotion } from "framer-motion";
+import type { Locale } from "@/data/locale";
 
 type OpeningContent = {
   hero: { identity: string; intro: string; supporting: string };
   about: { lead: string; paragraphs: string[] };
   currently: { items: string[] };
-  story: { description: string; steps: RuleStep[] };
+  story: { description: string; steps: [string, string, string][] };
 };
 
-type SequenceLayerProps = {
-  progress: MotionValue<number>;
-  start: number;
-  end: number;
-  children: ReactNode;
-  className?: string;
-  sectionId?: string;
-};
+const cloudWords = {
+  en: [
+    "student",
+    "designer",
+    "youth representative",
+    "organizer",
+    "activist",
+    "researcher",
+    "strategist",
+    "communicator",
+    "learner",
+    "leader",
+    "creator",
+    "editor",
+    "technologist",
+    "student rights",
+    "Europe",
+    "education",
+    "media",
+    "science",
+  ],
+  sr: [
+    "učenik",
+    "dizajner",
+    "omladinski predstavnik",
+    "organizator",
+    "aktivista",
+    "istraživač",
+    "strateg",
+    "komunikator",
+    "onaj koji uči",
+    "lider",
+    "stvaralac",
+    "urednik",
+    "tehnolog",
+    "prava učenika",
+    "Evropa",
+    "obrazovanje",
+    "mediji",
+    "nauka",
+  ],
+} as const;
 
-function SequenceLayer({ progress, start, end, children, className = "", sectionId }: SequenceLayerProps) {
-  const enter = start + (end - start) * 0.2;
-  const leave = end - (end - start) * 0.2;
-  // The first scene must already be visible before the visitor starts scrolling.
-  const opacity = useTransform(progress, [start, enter, leave, end], [start === 0 ? 1 : 0, 1, 1, 0]);
-  const y = useTransform(progress, [start, enter, leave, end], [64, 0, 0, -64]);
-  const scale = useTransform(progress, [start, enter, leave, end], [0.97, 1, 1, 1.025]);
+const introCopy = {
+  en: {
+    continuation: "Well",
+    conclusion: "a lot of things.",
+    cloudLabel: "A moving definition",
+    cloudLead: "I am never just one thing.",
+    cloudNote: "Scroll through the orbit",
+  },
+  sr: {
+    continuation: "Pa",
+    conclusion: "mnogo toga.",
+    cloudLabel: "Definicija u pokretu",
+    cloudLead: "Nikada nisam samo jedna stvar.",
+    cloudNote: "Prođi kroz orbitu",
+  },
+} as const;
 
-  return <motion.div id={sectionId} style={{ opacity, y, scale }} className={`absolute inset-0 flex items-center justify-center ${className}`}>{children}</motion.div>;
-}
-
-function TypedLead({ text, progress, start, end }: { text: string; progress: MotionValue<number>; start: number; end: number }) {
-  const words = text.split(" ");
+function WordOrb({ locale }: { locale: Locale }) {
+  const words = cloudWords[locale];
 
   return (
-    <p className="max-w-[19ch] text-[clamp(2.8rem,6.2vw,6.6rem)] font-bold leading-[0.93] tracking-[-0.065em] text-foreground">
-      {words.map((word, index) => <TypedWord key={`${word}-${index}`} word={word} index={index} total={words.length} progress={progress} start={start} end={end} />)}
-    </p>
+    <div className="opening-word-orb" aria-label={locale === "sr" ? "Reči koje opisuju Dositeja" : "Words that describe Dositej"}>
+      <div className="opening-orb-halo" />
+      <div className="opening-orb-meridian opening-orb-meridian-one" />
+      <div className="opening-orb-meridian opening-orb-meridian-two" />
+      <div className="opening-orb-equator" />
+      {words.map((word, index) => {
+        const angle = (360 / words.length) * index;
+        const radius = index % 3 === 0 ? 41 : index % 3 === 1 ? 35 : 29;
+        const x = 50 + Math.cos((angle * Math.PI) / 180) * radius;
+        const y = 50 + Math.sin((angle * Math.PI) / 180) * radius * 0.66;
+
+        return (
+          <motion.span
+            key={word}
+            className={`opening-orb-word opening-orb-word-${index % 4}`}
+            initial={{ opacity: 0, filter: "blur(16px)", scale: 0.8 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ delay: 0.12 + index * 0.045, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ left: `${x}%`, top: `${y}%` }}
+          >
+            {word}
+          </motion.span>
+        );
+      })}
+      <span className="opening-orb-core">DJ</span>
+    </div>
   );
 }
 
-function TypedWord({ word, index, total, progress, start, end }: { word: string; index: number; total: number; progress: MotionValue<number>; start: number; end: number }) {
-  const writingStart = start + (end - start) * (0.08 + (index / total) * 0.58);
-  const writingEnd = writingStart + (end - start) * 0.12;
-  const opacity = useTransform(progress, [writingStart, writingEnd], [0.08, 1]);
-  const y = useTransform(progress, [writingStart, writingEnd], [16, 0]);
-
-  return <motion.span style={{ opacity, y }} className="mr-[0.22em] inline-block">{word}</motion.span>;
-}
-
-function CurrentFocus({ item, index, total, progress, start, end }: { item: string; index: number; total: number; progress: MotionValue<number>; start: number; end: number }) {
-  const itemStart = start + (end - start) * (index / total);
-  const itemEnd = start + (end - start) * ((index + 1) / total);
-  const enter = itemStart + (itemEnd - itemStart) * 0.2;
-  const leave = itemEnd - (itemEnd - itemStart) * 0.2;
-  const opacity = useTransform(progress, [itemStart, enter, leave, itemEnd], [0, 1, 1, 0]);
-  const y = useTransform(progress, [itemStart, enter, leave, itemEnd], [52, 0, 0, -52]);
-
-  return <motion.p style={{ opacity, y }} className="absolute max-w-[13ch] text-[clamp(3rem,7.3vw,7.4rem)] font-bold leading-[0.9] tracking-[-0.065em] text-foreground"><OrganizationText>{item}</OrganizationText></motion.p>;
-}
-
-export default function OpeningSequence({ locale, content }: { locale: Locale; content: OpeningContent }) {
-  const copy = getCopy(locale);
-  const sequenceRef = useRef<HTMLElement>(null);
+export default function OpeningSequence({ locale }: { locale: Locale; content: OpeningContent }) {
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: sequenceRef, offset: ["start start", "end end"] });
-  const portraitY = useTransform(scrollYProgress, [0, 0.2], [0, -42]);
-  const portraitRotate = useTransform(scrollYProgress, [0, 0.2], [-2, 3]);
+  const copy = introCopy[locale];
+
+  const reveal = {
+    hidden: { opacity: 0, y: 56, filter: "blur(14px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+  };
 
   return (
-    <section ref={sequenceRef} className="relative hidden bg-background lg:block" style={{ height: "500vh" }}>
-      <div className="sticky top-0 h-screen overflow-hidden px-8 pt-28 xl:px-12">
-        <div className="pointer-events-none absolute left-[12%] top-[20%] h-[26rem] w-[26rem] rounded-full bg-glow/15 blur-[130px]" />
-        <div className="pointer-events-none absolute -right-36 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 rounded-full border border-border/60" />
-        <div className="pointer-events-none absolute inset-x-8 bottom-8 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+    <section className="opening-sequence relative overflow-hidden bg-[#f7f7f2] text-[#141414]" aria-label={locale === "sr" ? "Uvod" : "Introduction"}>
+      <div className="opening-grain pointer-events-none absolute inset-0" />
 
-        <div className="relative mx-auto h-full max-w-7xl">
-          <SequenceLayer progress={scrollYProgress} start={0} end={0.2}>
-            <motion.div style={reduceMotion ? undefined : { y: portraitY, rotate: portraitRotate }} className="relative h-[min(68vh,43rem)] w-[min(38vw,30rem)] min-w-[22rem]">
-              <div className="absolute inset-0 rounded-[3rem] border border-border bg-card/55 shadow-[0_38px_100px_color-mix(in_srgb,var(--foreground)_18%,transparent)] backdrop-blur-2xl" />
-              <div className="absolute inset-3 overflow-hidden rounded-[2.35rem] bg-[radial-gradient(circle_at_52%_34%,color-mix(in_srgb,var(--glow)_24%,transparent),transparent_58%)]">
-                <Image src="/portrait/dositej-portrait-cutout.png" alt="Dositej Jovanović" fill priority unoptimized sizes="30rem" className="object-contain object-bottom" />
-              </div>
-              <p className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.28em] text-muted">{locale === "sr" ? "Skroluj kroz priču" : "Scroll through the story"}</p>
-            </motion.div>
-          </SequenceLayer>
+      <section className="relative flex min-h-[100svh] items-start px-5 pb-16 pt-32 sm:px-8 md:px-12 lg:px-16 lg:pt-40">
+        <motion.div
+          className="max-w-[12ch]"
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={reveal}
+          transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-black/45">Dositej Jovanović · 2026</p>
+          <h1 className="opening-display text-[clamp(5.4rem,18vw,19rem)] leading-[0.72] tracking-[-0.09em]">I am</h1>
+        </motion.div>
+        <p className="absolute bottom-8 right-5 max-w-[16ch] text-right text-xs leading-relaxed text-black/50 sm:right-8 md:right-12 lg:right-16">{locale === "sr" ? "Portfolio u nastajanju" : "A portfolio in motion"}</p>
+      </section>
 
-          <SequenceLayer progress={scrollYProgress} start={0.16} end={0.37}>
-            <div className="text-center">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-glow">{content.hero.identity}</p>
-              <h1 className="text-[clamp(4.6rem,11vw,11rem)] font-bold leading-[0.82] tracking-[-0.085em] text-foreground">
-                {copy.hero.greeting}&nbsp;<span className="whitespace-nowrap"><AnimatedName />.</span>
-              </h1>
-              <p className="mx-auto mt-9 max-w-xl text-lg leading-relaxed text-muted">{content.hero.intro}</p>
-            </div>
-          </SequenceLayer>
+      <section id="about" className="relative flex min-h-[118svh] flex-col justify-center overflow-hidden px-5 py-24 sm:px-8 md:px-12 lg:px-16">
+        <motion.p
+          className="opening-display self-start text-[clamp(5.2rem,16vw,17rem)] leading-[0.73] tracking-[-0.1em]"
+          initial={reduceMotion ? false : { opacity: 0, x: "-32vw", filter: "blur(14px)" }}
+          whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.42 }}
+          transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {copy.continuation}
+        </motion.p>
+        <motion.p
+          className="opening-display mt-8 max-w-[7.5ch] self-end text-right text-[clamp(4.3rem,13vw,14rem)] leading-[0.76] tracking-[-0.1em]"
+          initial={reduceMotion ? false : { opacity: 0, x: "32vw", filter: "blur(14px)" }}
+          whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.42 }}
+          transition={{ duration: 1.25, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {copy.conclusion}
+        </motion.p>
+        <motion.p
+          className="mt-14 max-w-sm text-base leading-relaxed text-black/60 sm:text-lg"
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.24 }}
+        >
+          {locale === "sr" ? "Niti jedna titula nije dovoljna da objasni smer u kom idem." : "No single title can explain the direction I am moving in."}
+        </motion.p>
+      </section>
 
-          <SequenceLayer progress={scrollYProgress} start={0.34} end={0.58} sectionId="about">
-            <div className="w-full max-w-6xl">
-              <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-glow">{copy.about.eyebrow}</p>
-              <TypedLead text={content.about.lead} progress={scrollYProgress} start={0.34} end={0.58} />
-              <div className="mt-9 grid max-w-4xl gap-5 border-t border-border pt-6 md:grid-cols-2">
-                {content.about.paragraphs.map((paragraph) => <p key={paragraph} className="text-sm leading-relaxed text-muted"><OrganizationText>{paragraph}</OrganizationText></p>)}
-              </div>
-            </div>
-          </SequenceLayer>
-
-          <SequenceLayer progress={scrollYProgress} start={0.56} end={0.79} sectionId="currently">
-            <div className="w-full max-w-6xl">
-              <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-glow">{copy.currently.eyebrow}</p>
-              <h2 className="mb-9 text-[clamp(3.1rem,7vw,7rem)] font-bold leading-[0.86] tracking-[-0.075em] text-foreground">{copy.currently.title}</h2>
-              <div className="relative h-[min(30vh,19rem)] border-t border-border pt-7">
-                {content.currently.items.map((item, index) => <CurrentFocus key={item} item={item} index={index} total={content.currently.items.length} progress={scrollYProgress} start={0.56} end={0.79} />)}
-              </div>
-            </div>
-          </SequenceLayer>
-
-          <SequenceLayer progress={scrollYProgress} start={0.77} end={1} sectionId="three-d-rule">
-            <div className="w-full max-w-6xl">
-              <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-glow">{copy.story.eyebrow}</p>
-              <div className="flex items-end justify-between border-b border-border pb-6">
-                <h2 className="text-[clamp(3rem,7vw,7.8rem)] font-bold leading-[0.82] tracking-[-0.09em] text-foreground">3<span className="text-glow">D</span><span className="ml-[0.08em] text-muted/80">ositej</span></h2>
-                <p className="mb-1 max-w-sm text-right text-sm leading-relaxed text-muted">{content.story.description}</p>
-              </div>
-              <div className="mt-7 grid grid-cols-3 gap-4">
-                {content.story.steps.map(([letter, title, description]) => (
-                  <div key={title} className="relative overflow-hidden rounded-[1.6rem] border border-border bg-card/55 p-6 shadow-[0_16px_44px_var(--shadow)] backdrop-blur-xl">
-                    <span className="absolute -right-3 -top-9 text-[8rem] font-bold leading-none tracking-[-0.16em] text-glow/10">{letter}</span>
-                    <p className="relative text-5xl font-bold leading-none tracking-[-0.12em] text-glow">{letter}</p>
-                    <p className="relative mt-8 text-xl font-semibold tracking-[-0.04em] text-foreground">{title}</p>
-                    <p className="relative mt-2 text-sm leading-relaxed text-muted">{description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </SequenceLayer>
+      <section id="currently" className="relative flex min-h-[130svh] items-center overflow-hidden px-5 py-24 sm:px-8 md:px-12 lg:px-16">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 42 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.26em] text-black/45">{copy.cloudLabel}</p>
+            <h2 className="opening-display max-w-[7ch] text-[clamp(3.7rem,7vw,8.4rem)] leading-[0.8] tracking-[-0.08em]">{copy.cloudLead}</h2>
+            <p className="mt-8 max-w-xs text-sm leading-relaxed text-black/55">{locale === "sr" ? "Reči se približavaju, gube fokus i ponovo se povezuju — baš kao rad koji se razvija između ljudi, ideja i projekata." : "Words move closer, fall out of focus and reconnect — like work that develops between people, ideas and projects."}</p>
+          </motion.div>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.88, filter: "blur(22px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.22 }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <WordOrb locale={locale} />
+          </motion.div>
         </div>
-      </div>
+        <p className="absolute bottom-8 left-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-black/40 sm:left-8 md:left-12 lg:left-16">{copy.cloudNote}</p>
+      </section>
     </section>
   );
 }
