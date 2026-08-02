@@ -29,6 +29,11 @@ const heroDestinations = [
   { id: "contact", en: "Contact", sr: "Kontakt" },
 ];
 
+const roleRibbon = {
+  en: "STUDENT · DESIGNER · YOUTH REPRESENTATIVE · ",
+  sr: "UČENIK · DIZAJNER · PREDSTAVNIK MLADIH · ",
+};
+
 export default function Hero({ locale, content }: { locale: Locale; content?: HeroContent }) {
   const copy = getCopy(locale).hero;
   const values = { ...copy, ...content };
@@ -54,8 +59,9 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
   const portraitY = useTransform(smoothMouseY, [-0.5, 0.5], [-8, 8]);
 
   return (
-    <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-12 pt-28 sm:px-8 md:min-h-[42rem] md:pb-16 md:pt-32">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/15 blur-[120px] sm:h-[500px] sm:w-[500px]" />
+    <section className="relative flex min-h-0 items-center overflow-hidden bg-background px-5 pb-14 pt-28 sm:px-8 md:min-h-[45rem] md:pb-16 md:pt-32">
+      <div className="editorial-frame pointer-events-none absolute inset-0 opacity-50" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/10 blur-[120px] sm:h-[500px] sm:w-[500px]" />
       <motion.div
         style={{ x: circleOneX, y: circleOneY }}
         className="pointer-events-none absolute -right-40 -top-40 hidden h-[460px] w-[460px] rounded-full border border-border bg-card/30 backdrop-blur-3xl lg:block"
@@ -64,6 +70,17 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
         style={{ rotate: orbitRotate }}
         className="pointer-events-none absolute left-[68%] top-1/2 hidden h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-border/50 xl:block"
       />
+
+      <div className="pointer-events-none absolute inset-x-0 top-[23%] hidden overflow-hidden xl:block">
+        <motion.p initial={{ opacity: 0, x: -56 }} animate={{ opacity: 0.09, x: 0 }} transition={{ delay: 0.18, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
+          {roleRibbon[locale]}{roleRibbon[locale]}
+        </motion.p>
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-[7%] hidden overflow-hidden xl:block">
+        <motion.p initial={{ opacity: 0, x: 64 }} animate={{ opacity: 0.07, x: 0 }} transition={{ delay: 0.32, duration: 1.1, ease: [0.16, 1, 0.3, 1] }} className="hero-role-line text-foreground">
+          {roleRibbon[locale]}{roleRibbon[locale]}
+        </motion.p>
+      </div>
 
       <div className="relative z-20 mx-auto w-full max-w-7xl xl:max-w-6xl">
         <div className="relative lg:max-w-[60%]">
@@ -79,7 +96,7 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 max-w-[11ch] text-[clamp(2.9rem,11vw,3.65rem)] font-bold leading-[0.98] tracking-[-0.055em] text-foreground sm:max-w-none sm:text-[clamp(3.25rem,5.3vw,5.5rem)] md:whitespace-nowrap"
+            className="mt-5 max-w-[11ch] text-[clamp(2.9rem,11vw,3.65rem)] font-medium leading-[0.95] tracking-[-0.065em] text-foreground sm:max-w-none sm:text-[clamp(3.25rem,5.3vw,5.5rem)] md:whitespace-nowrap"
           >
             {copy.greeting}&nbsp;
             <span className="whitespace-nowrap">
@@ -176,13 +193,13 @@ export default function Hero({ locale, content }: { locale: Locale; content?: He
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.12, duration: 0.6 }}
           aria-label={locale === "sr" ? "Brza navigacija" : "Quick navigation"}
-          className="relative z-20 mt-10 hidden w-fit items-center gap-1 rounded-2xl border border-border bg-card/65 p-1.5 shadow-[0_16px_42px_color-mix(in_srgb,var(--foreground)_12%,transparent)] backdrop-blur-xl lg:flex"
+          className="relative z-20 mt-10 hidden w-fit items-center gap-1 border-y border-border py-2 lg:flex"
         >
           {heroDestinations.map((destination) => (
             <a
               key={destination.id}
               href={locale === "sr" ? `/sr/#${destination.id}` : `#${destination.id}`}
-              className="rounded-xl px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
+              className="px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow"
             >
               {locale === "sr" ? destination.sr : destination.en}
             </a>

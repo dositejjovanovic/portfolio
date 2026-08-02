@@ -88,6 +88,10 @@ body {
   color: var(--foreground);
 
   font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
 }
 
@@ -226,6 +230,23 @@ h3 {
 
   font-family: var(--font-display);
 
+}
+
+.editorial-frame {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 52%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 36%, transparent) 1px, transparent 1px);
+  background-size: 5.5rem 5.5rem;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+
+.hero-role-line {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6.8vw, 7.4rem);
+  font-weight: 500;
+  letter-spacing: -0.085em;
+  line-height: .78;
+  white-space: nowrap;
 }
 
 /* Editorial opening — scoped so existing sections keep their established visual system. */
