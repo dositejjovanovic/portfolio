@@ -19,9 +19,13 @@ function CurrentStatement({ item, index, total, progress, reduceMotion }: Statem
   const end = (index + 1) / total;
   const enter = start + (end - start) * 0.18;
   const leave = start + (end - start) * 0.76;
-  const opacity = useTransform(progress, [start, enter, leave, end], [0, 1, 1, 0]);
-  const y = useTransform(progress, [start, enter, leave, end], [72, 0, 0, -72]);
-  const scale = useTransform(progress, [start, enter, leave, end], [0.96, 1, 1, 1.035]);
+  const isLast = index === total - 1;
+  // The final statement deliberately remains on screen until the sticky scene
+  // releases. Otherwise its exit animation leaves a blank viewport at the end.
+  const range = isLast ? [start, enter, leave, 1] : [start, enter, leave, end];
+  const opacity = useTransform(progress, range, isLast ? [0, 1, 1, 1] : [0, 1, 1, 0]);
+  const y = useTransform(progress, range, isLast ? [72, 0, 0, 0] : [72, 0, 0, -72]);
+  const scale = useTransform(progress, range, isLast ? [0.96, 1, 1, 1] : [0.96, 1, 1, 1.035]);
 
   return (
     <motion.div
@@ -73,7 +77,7 @@ export default function Currently({ locale, items }: { locale: Locale; items?: s
         </div>
       </div>
 
-      <div className="relative mx-auto hidden max-w-7xl lg:block" style={{ height: `${Math.max(values.length * 76, 280)}vh` }}>
+      <div className="relative mx-auto hidden max-w-7xl lg:block" style={{ height: `${Math.max(values.length * 54, 220)}vh` }}>
         <div className="sticky top-0 flex h-screen items-center overflow-hidden py-24">
           <div className="pointer-events-none absolute -right-28 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-border/60 bg-card/20 blur-[1px]" />
           <div className="pointer-events-none absolute right-[14%] top-[20%] h-32 w-32 rounded-full bg-glow/20 blur-[70px]" />
