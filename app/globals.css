@@ -21,21 +21,21 @@
 
 :root {
 
-  --background: #f5f7ff;
+  --background: #f7f7f2;
 
-  --foreground: #271980;
+  --foreground: #171716;
 
-  --card: #ffffff;
+  --card: #fcfcf8;
 
-  --border: #dbe4ff;
+  --border: #d8d8cf;
 
-  --muted: #64748b;
+  --muted: #696963;
 
-  --glow: #393bc5;
+  --glow: #6058d9;
 
-  --glass: rgba(255, 255, 255, 0.68);
-  --glass-highlight: rgba(255, 255, 255, 0.74);
-  --shadow: rgba(39, 25, 128, 0.12);
+  --glass: rgba(252, 252, 248, 0.74);
+  --glass-highlight: rgba(255, 255, 255, 0.92);
+  --shadow: rgba(24, 24, 21, 0.1);
 
 }
 
@@ -43,19 +43,19 @@
 
 .dark {
 
-  --background: #050505;
+  --background: #11110f;
 
   --foreground: #ffffff;
 
-  --card: #09090b;
+  --card: #181816;
 
-  --border: #27272a;
+  --border: #363631;
 
-  --muted: #a1a1aa;
+  --muted: #b6b6ac;
 
-  --glow: #a5b4fc;
+  --glow: #aaa5ff;
 
-  --glass: rgba(15, 16, 24, 0.68);
+  --glass: rgba(24, 24, 22, 0.72);
   --glass-highlight: rgba(255, 255, 255, 0.10);
   --shadow: rgba(0, 0, 0, 0.34);
 
@@ -222,7 +222,7 @@ h1,
 h2,
 h3 {
 
-  font-family: var(--font-space), sans-serif;
+  font-family: "The Zondaya Gevola", var(--font-space), Georgia, serif;
 
 }
 
@@ -235,6 +235,19 @@ h3 {
 .opening-sequence {
   --opening-sans: "Miranda Sans", var(--font-inter), sans-serif;
   font-family: var(--opening-sans);
+}
+
+.editorial-kicker {
+  font-family: var(--opening-sans, var(--font-inter), sans-serif);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), color-mix(in srgb, var(--border) 24%, transparent));
 }
 
 .opening-grain {
