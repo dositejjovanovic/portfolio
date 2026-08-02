@@ -59,7 +59,7 @@ export default function Currently({ locale, items }: { locale: Locale; items?: s
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
 
   return (
-    <section id="currently" ref={sectionRef} className="relative scroll-mt-24 bg-background px-5 py-12 sm:px-8 sm:py-16 md:py-20">
+    <section id="currently" ref={sectionRef} className="relative scroll-mt-24 bg-background px-5 py-12 sm:px-8 sm:py-16 md:py-20 lg:py-0">
       <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent sm:inset-x-8" />
 
       <div className="mx-auto max-w-7xl lg:hidden">
@@ -77,7 +77,7 @@ export default function Currently({ locale, items }: { locale: Locale; items?: s
         </div>
       </div>
 
-      <div className="relative mx-auto hidden max-w-7xl lg:block" style={{ height: `${Math.max(values.length * 54, 220)}vh` }}>
+      <div className="relative mx-auto hidden max-w-7xl lg:block" style={{ height: `${Math.max(values.length * 42, 168)}vh` }}>
         <div className="sticky top-0 flex h-screen items-center overflow-hidden py-24">
           <div className="pointer-events-none absolute -right-28 top-1/2 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-border/60 bg-card/20 blur-[1px]" />
           <div className="pointer-events-none absolute right-[14%] top-[20%] h-32 w-32 rounded-full bg-glow/20 blur-[70px]" />
